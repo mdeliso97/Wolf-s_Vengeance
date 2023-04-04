@@ -63,6 +63,8 @@
     <Compile Include="Assets\weapon.cs" />
     <Compile Include="Assets\bullet.cs" />
     <Compile Include="Assets\wolfController.cs" />
+    <Compile Include="Assets\shotgun.cs" />
+    <Compile Include="Assets\sniper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
