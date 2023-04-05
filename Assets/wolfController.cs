@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class wolfController : MonoBehaviour
 {
@@ -34,7 +35,8 @@ public class wolfController : MonoBehaviour
         if (health.health == 0)
         {
             print("you ded");
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
+            SceneManager.LoadScene("MenuScene");
         }
 
     }
