@@ -1,4 +1,7 @@
-/Library
-/Logs
-/Temp
-/UserSettings
+**/Library
+**/Logs
+**/Temp
+**/UserSettings
+**/.vs
+**/Debug
+.vsconfig
