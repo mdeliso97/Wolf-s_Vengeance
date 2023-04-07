@@ -20,17 +20,22 @@ public class Chunk
 
         List<Vector3> _treePositions = new List<Vector3>();
 
-        float density = 0.0001f * treeDensity;
-        float t_min = 0.5f + density;
-        float t_max = 0.5f - density;
+        float density = 0.00001f * treeDensity;
+
+        float[,] t_min_max = new float[9, 2];
+        for (int i = 1; i <= 9; i++) {
+            t_min_max[i-1, 0] = 0.1f * i - density;
+            t_min_max[i-1, 1] = 0.1f * i + density;
+        }
 
         for (int y = 0; y < size; y++) {
             for (int x = 0; x < size; x++) {
                 float t = map[x, y];
-
-                if (t < t_min && t > t_max) {
-                    Vector3 position = new Vector3(posX*size + x, posY*size + y, y + 1);
-                    _treePositions.Add(position);
+                for (int i = 0; i < 9; i++) {
+                    if (t_min_max[i, 0] < t && t < t_min_max[i, 1]) {
+                        Vector3 position = new Vector3(posX*size + x, posY*size + y, y/size + 1);
+                        _treePositions.Add(position);
+                    }
                 }
             }
         }
