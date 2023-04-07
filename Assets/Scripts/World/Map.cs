@@ -59,14 +59,14 @@ public class World : MonoBehaviour
 
         UpdateBossPositionUI();
 
-        // time += Time.deltaTime;
-        // if (time > spawnInterval) {
-        //     Vector3[] spawnPositions = GetSpawnPositions(4);
-        //     foreach (Vector3 spawnPosition in spawnPositions) {
-        //         Instantiate(hunters[0], spawnPosition, Quaternion.identity);
-        //     }
-        //     time -= spawnInterval;
-        // }
+        time += Time.deltaTime;
+        if (time > spawnInterval) {
+            Vector3[] spawnPositions = GetSpawnPositions(4);
+            foreach (Vector3 spawnPosition in spawnPositions) {
+                Instantiate(hunters[0], spawnPosition, Quaternion.identity);
+            }
+            time -= spawnInterval;
+        }
     }
 
     private void LoadChunks() {
