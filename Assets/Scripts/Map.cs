@@ -9,17 +9,22 @@ public class World : MonoBehaviour
 {
     [Header("Prefabs")]
     public List<GameObject> trees = new List<GameObject>();
+    public List<GameObject> hunters = new List<GameObject>();
     public SpriteRenderer[] points = new SpriteRenderer[4];
     public SpriteRenderer boss;
     public Image bossDirectionUI;
 
-    [Header("Raw Image")]
+    [Header("Camera")]
     public Camera camera;
 
     [Header("Objects")]
     public float spawnTreeDensity = 2f;
     public float bossTreeDensity = 1f;
     public int bossDistance = 10_000;
+
+	[Header("Enemy Spawn Settings")]
+	public float spawnInterval = 5f;
+	
 
     private Vector3 bossPosition;
 
@@ -38,30 +43,30 @@ public class World : MonoBehaviour
     void Update() {
         SetViewportEdgePoints();
 
-        float timeStart = Time.realtimeSinceStartup;
+        // float timeStart = Time.realtimeSinceStartup;
         LoadChunks();
-        time += Time.realtimeSinceStartup - timeStart;
+        // time += Time.realtimeSinceStartup - timeStart;
 
-        numUpdates++;
-        if (numUpdates % 60 == 0) {
-            Debug.Log("Avg LoadChunks execution time: " + (time/60 * 1000) + " ms");
-            Debug.Log("total Trees: " + (freeTrees.Count + usedTrees.Count));
-            numUpdates = 0;
-            time = 0;
+        // numUpdates++;
+        // if (numUpdates % 60 == 0) {
+        //     Debug.Log("Avg LoadChunks execution time: " + (time/60 * 1000) + " ms");
+        //     Debug.Log("total Trees: " + (freeTrees.Count + usedTrees.Count));
+        //     numUpdates = 0;
+        //     time = 0;
 
-            Debug.Log("rect " + bossDirectionUI.rectTransform.rect);
-        }
+        //     Debug.Log("rect " + bossDirectionUI.rectTransform.rect);
+        // }
 
         UpdateBossPositionUI();
 
-        // time += Time.deltaTime;
-        // if (time > 2f) {
-        //     Vector3[] spawnPositions = GetSpawnPositions(4);
-        //     foreach (Vector3 spawnPosition in spawnPositions) {
-        //         Debug.Log(spawnPosition);
-        //     }
-        //     time = 0f;
-        // }
+        time += Time.deltaTime;
+        if (time > spawnInterval) {
+            Vector3[] spawnPositions = GetSpawnPositions(4);
+            foreach (Vector3 spawnPosition in spawnPositions) {
+				Instantiate(hunters[0], spawnPosition, Quaternion.identity);
+            }
+            time -= spawnInterval;
+        }
     }
 
     private void LoadChunks() {
@@ -157,9 +162,6 @@ public class World : MonoBehaviour
             alpha = -alpha;
         }
         alpha += 180;
-
-        // Debug.Log("bossDirection: ("+bossDirection.x+", "+bossDirection.y+")\n"+
-        //     "up: ("+up.x+", "+up.y+")   -   alpha: "+(alpha));
 
         bossDirectionUI.rectTransform.rotation = Quaternion.Euler(
             bossDirectionUI.rectTransform.eulerAngles.x,
