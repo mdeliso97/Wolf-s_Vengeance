@@ -531,9 +531,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1525322995}
+    - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
+      propertyPath: bossBase
+      value: 
+      objectReference: {fileID: 1525322995}
+    - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
+      propertyPath: bossDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
+      propertyPath: bossJaegerPrefab
+      value: 
+      objectReference: {fileID: 2810369547973779251, guid: 8f2c9657253d7b84084bc0270dc93fd2, type: 3}
     - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
       propertyPath: hunters.Array.size
       value: 2
@@ -872,6 +888,11 @@ MonoBehaviour:
   - {fileID: 568225675}
   fullHeart: {fileID: 21300000, guid: 9fce4b15da8aab74da350052f3c128db, type: 3}
   emptyHeart: {fileID: 21300000, guid: 7ff82a32343e8244aabc6dd59552b66b, type: 3}
+--- !u!212 &1525322995 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1684952005976964496, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
+  m_PrefabInstance: {fileID: 756387215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1643337201
 GameObject:
   m_ObjectHideFlags: 0

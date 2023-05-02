@@ -419,9 +419,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 8264042768542558821, guid: 8f2c9657253d7b84084bc0270dc93fd2, type: 3}
+    - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 1243219495}
+    - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
+      propertyPath: bossDistance
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4434765986674745987, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
       propertyPath: m_Camera
       value: 

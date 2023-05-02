@@ -11,7 +11,11 @@ public class World : MonoBehaviour
     public List<GameObject> trees = new List<GameObject>();
     public List<GameObject> hunters = new List<GameObject>();
     public SpriteRenderer[] points = new SpriteRenderer[4];
-    public SpriteRenderer boss;
+    public SpriteRenderer bossBase;
+
+    public GameObject bossJaegerPrefab;
+    public bool isBossInitiated = false;
+
     public Image bossDirectionUI;
 
     [Header("Camera")]
@@ -20,7 +24,7 @@ public class World : MonoBehaviour
     [Header("Objects")]
     public float spawnTreeDensity = 2f;
     public float bossTreeDensity = 1f;
-    public int bossDistance = 10_000;
+    public int bossDistance = 1_000;
 
     [Header("Enemy Spawn Settings")]
     public float spawnInterval = 5f;
@@ -59,16 +63,37 @@ public class World : MonoBehaviour
 
         UpdateBossPositionUI();
 
+        if (Vector2.Distance(new Vector2(camera.transform.position.x, camera.transform.position.y), new Vector2(bossPosition.x, bossPosition.y))< 10 && !isBossInitiated)
+        {
+
+
+            StartBossSequence();
+            
+
+            isBossInitiated=true;
+        }
+            
         time += Time.deltaTime;
-        if (time > spawnInterval) {
+        if (time > spawnInterval && !isBossInitiated) {
             Vector3[] spawnPositions = GetSpawnPositions(4);
             foreach (Vector3 spawnPosition in spawnPositions) {
                 Instantiate(hunters[0], spawnPosition, Quaternion.identity);
+
             }
             time -= spawnInterval;
         }
     }
 
+
+    private void StartBossSequence()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("jaeger");
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            Destroy(enemies[i]);
+        }
+        Instantiate(bossJaegerPrefab, bossPosition, Quaternion.identity);
+    }
     private void LoadChunks() {
         Vector3 topRight = camera.ViewportToWorldPoint(new Vector3(1, 1, 0));
         Vector3 bottomLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, 0));
@@ -147,7 +172,7 @@ public class World : MonoBehaviour
         float positionX = Random.Range(-bossDistance, bossDistance);
         float positionY = Mathf.Sqrt(bossDistance*bossDistance - positionX*positionX);
         bossPosition = new Vector3(positionX, positionY, 0);
-        boss.transform.position = bossPosition;
+        bossBase.transform.position = bossPosition;
         Debug.Log("Boss Position: x " + positionX + " - y " + positionY);
     }
 
