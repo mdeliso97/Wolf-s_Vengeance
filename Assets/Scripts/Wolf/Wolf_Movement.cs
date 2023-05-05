@@ -33,6 +33,12 @@ public class Wolf_Movement : MonoBehaviour
             animator.SetInteger("Direction", 1); // right walk
             direction_facing = true;
         }
+        //else if (horizontalInput > 0f || Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    animator.SetInteger("Direction", 4); // right run
+        //    wolfSpeed = 5f;
+        //    direction_facing = true;
+        //}
         else if (verticalInput > 0f && horizontalInput > 0f)
         {
             animator.SetInteger("Direction", 1); // up + right
