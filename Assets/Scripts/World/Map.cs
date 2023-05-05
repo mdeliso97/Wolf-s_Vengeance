@@ -45,7 +45,7 @@ public class World : MonoBehaviour
     }
 
     void Update() {
-        SetViewportEdgePoints();
+        // SetViewportEdgePoints();
 
         // float timeStart = Time.realtimeSinceStartup;
         LoadChunks();
