@@ -5,101 +5,71 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Wolf_Movement : MonoBehaviour
 {
-    private float wolfSpeed = 2f;
-    bool direction_facing = true; // False is StandingLeft, True is StandingRight
+    public float wolf_speed = 20f;
+    public float sqr_max_speed = 100f;
 
-    // Start is called before the first frame update
+    private bool is_walking = false;
+    private bool is_biting = false;
+
+    private Rigidbody2D rb;
+    private Animator animator;
+    private SpriteRenderer sprite_renderer;
+
     void Start()
     {
-     
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        sprite_renderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
+    public void BiteAnimationEnd()
+    {
+        is_biting = false;
+        animator.SetInteger("isBite", -1);
+    }
     private void Update()
     {
+        if (!is_biting && Input.GetKeyDown(KeyCode.Space))
+        {
+            is_biting = true;
+            if (rb.velocity.y < 0)
+            {
+                animator.SetInteger("isBite", 0);
+            }
+            else
+            {
+                animator.SetInteger("isBite", 1);
+            }
+        }
+    }
 
+    private void FixedUpdate()
+    {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
-        transform.position += new Vector3(horizontalInput * wolfSpeed * Time.deltaTime, verticalInput * wolfSpeed * Time.deltaTime, 0f);
-        
-
-        Animator animator = GetComponent<Animator>();
-
-        animator.SetInteger("Direction", 0); // right walk
-
-        if (horizontalInput > 0f)
+        if (horizontalInput != 0f || verticalInput != 0f)
         {
-            animator.SetInteger("Direction", 1); // right walk
-            direction_facing = true;
-        }
-        //else if (horizontalInput > 0f || Input.GetKey(KeyCode.LeftShift))
-        //{
-        //    animator.SetInteger("Direction", 4); // right run
-        //    wolfSpeed = 5f;
-        //    direction_facing = true;
-        //}
-        else if (verticalInput > 0f && horizontalInput > 0f)
-        {
-            animator.SetInteger("Direction", 1); // up + right
-            direction_facing = true;
-        }
-        else if (verticalInput < 0f && horizontalInput > 0f)
-        {
-            animator.SetInteger("Direction", 1); // down + right
-            direction_facing = true;
-        }
-        else if (horizontalInput < 0f)
-        {
-            animator.SetInteger("Direction", 2); // left walk
-            direction_facing = false;
-        }
-        else if (direction_facing == true && verticalInput > 0 && horizontalInput == 0)
-        {
-            animator.SetInteger("Direction", 1); // Moving right direction up if last movement was right
-
-        }
-        else if (direction_facing == true && verticalInput < 0 && horizontalInput == 0)
-        {
-            animator.SetInteger("Direction", 1); // Moving right direction down if last movement was right
-        }
-        else if (direction_facing == false && verticalInput > 0 && horizontalInput == 0)
-        {
-            animator.SetInteger("Direction", 2); // Moving left direction up if last movement was left
-        }
-        else if (direction_facing == false && verticalInput < 0 && horizontalInput == 0)
-        {
-            animator.SetInteger("Direction", 2); // Moving left diretion down if last movement was left
-        }
-        else if (verticalInput > 0f && horizontalInput < 0f)
-        {
-            animator.SetInteger("Direction", 2); // up + left
-            direction_facing = false;
-        }
-
-        else if (verticalInput < 0f && horizontalInput < 0f)
-        {
-            animator.SetInteger("Direction", 2); // down + left
-            direction_facing = false;
-        }
-        else
-        {
-            if (direction_facing == true) 
-                animator.SetInteger("Direction", 0); // idle right
-            else
-                animator.SetInteger("Direction", 3); // idle left
-            if (horizontalInput > 0f && verticalInput == 0f && direction_facing == true || horizontalInput < 0f && verticalInput == 0f && direction_facing == true)
+            Vector2 force = new Vector2(horizontalInput * wolf_speed, verticalInput * wolf_speed);
+            if (Vector2.Dot(force, rb.velocity) < 0 || rb.velocity.sqrMagnitude < sqr_max_speed)
             {
-                animator.SetInteger("Direction", 0); // left + right StandingRight
+                rb.AddForce(force);
             }
-            else if (horizontalInput > 0f && verticalInput == 0f && direction_facing == false || horizontalInput < 0f && verticalInput == 0f && direction_facing == false)
-                animator.SetInteger("Direction", 1); // left + right StandingLeft
-            if (horizontalInput == 0f && verticalInput < 0f && direction_facing == true || horizontalInput == 0f && verticalInput > 0f && direction_facing == true)
+        }
+
+        // set animator isWalk parameter
+        bool new_is_walking = rb.velocity.sqrMagnitude > 0.1;
+        if (is_walking != new_is_walking)
+        {
+            is_walking = new_is_walking;
+            animator.SetBool("isWalk", is_walking);
+        }
+        if (new_is_walking)
+        {
+            if ((sprite_renderer.flipX && rb.velocity.x > 0) || (!sprite_renderer.flipX && rb.velocity.x < 0))
             {
-                animator.SetInteger("Direction", 0); // up + down StandingRight
+                sprite_renderer.flipX = !sprite_renderer.flipX;
             }
-            else if (horizontalInput == 0f && verticalInput < 0f && direction_facing == false || horizontalInput == 0f && verticalInput > 0f && direction_facing == false)
-                animator.SetInteger("Direction", 3); // up + down StandingLeft
         }
     }
 }
