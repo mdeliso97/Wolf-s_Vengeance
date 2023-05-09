@@ -1050,6 +1050,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wolf
       objectReference: {fileID: 0}
+    - target: {fileID: 4382582866695558751, guid: 36bbec2e878a60344aa42f2ca0446a0e, type: 3}
+      propertyPath: m_CallbackLayers.m_Bits
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382582866695558751, guid: 36bbec2e878a60344aa42f2ca0446a0e, type: 3}
+      propertyPath: m_ForceSendLayers.m_Bits
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382582866695558751, guid: 36bbec2e878a60344aa42f2ca0446a0e, type: 3}
+      propertyPath: m_ForceReceiveLayers.m_Bits
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382582866695558751, guid: 36bbec2e878a60344aa42f2ca0446a0e, type: 3}
+      propertyPath: m_ContactCaptureLayers.m_Bits
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 9159279744383433074, guid: 36bbec2e878a60344aa42f2ca0446a0e, type: 3}
       propertyPath: m_RootOrder
       value: 5

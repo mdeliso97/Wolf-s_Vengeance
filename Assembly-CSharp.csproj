@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Bite_Interaction.cs" />
     <Compile Include="Assets\Scripts\World\NoiseGenerator.cs" />
     <Compile Include="Assets\Scripts\sniper.cs" />
+    <Compile Include="Assets\Scripts\Wolf\Sort.cs" />
     <Compile Include="Assets\Scripts\Wolf\Wolf_Moving.cs" />
     <Compile Include="Assets\Scripts\Hunter_Bited.cs" />
     <Compile Include="Assets\Scripts\World\Map.cs" />

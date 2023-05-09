@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Wolf_Movement : MonoBehaviour
 {
@@ -10,6 +7,7 @@ public class Wolf_Movement : MonoBehaviour
 
     private bool is_walking = false;
     private bool is_biting = false;
+    private int active_bite_collider_index = -1;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -22,11 +20,13 @@ public class Wolf_Movement : MonoBehaviour
         animator = GetComponent<Animator>();
         sprite_renderer = GetComponent<SpriteRenderer>();
         bite_colliders = GetComponentsInChildren<CircleCollider2D>();
-        bite_colliders.Sort(bite_colliders, new Sort());
+
+        // sort the colliders by name
+        System.Array.Sort(bite_colliders, new Sort());
+        // disable all bite colliders
         foreach (CircleCollider2D bite_collider in bite_colliders)
         {
             bite_collider.enabled = false;
-            print(bite_collider.name);
         }
     }
 
@@ -34,6 +34,7 @@ public class Wolf_Movement : MonoBehaviour
     {
         is_biting = false;
         animator.SetInteger("isBite", -1);
+        bite_colliders[active_bite_collider_index].enabled = false;
     }
     
     private void Update()
@@ -44,10 +45,14 @@ public class Wolf_Movement : MonoBehaviour
             if (rb.velocity.y < 0)
             {
                 animator.SetInteger("isBite", 0);
+                active_bite_collider_index = sprite_renderer.flipX ? 2 : 3;
+                bite_colliders[active_bite_collider_index].enabled = true;
             }
             else
             {
                 animator.SetInteger("isBite", 1);
+                active_bite_collider_index = sprite_renderer.flipX ? 1 : 0;
+                bite_colliders[active_bite_collider_index].enabled = true;
             }
         }
     }
