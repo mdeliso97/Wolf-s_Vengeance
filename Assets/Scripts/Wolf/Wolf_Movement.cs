@@ -14,12 +14,20 @@ public class Wolf_Movement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer sprite_renderer;
+    private CircleCollider2D[] bite_colliders;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite_renderer = GetComponent<SpriteRenderer>();
+        bite_colliders = GetComponentsInChildren<CircleCollider2D>();
+        bite_colliders.Sort(bite_colliders, new Sort());
+        foreach (CircleCollider2D bite_collider in bite_colliders)
+        {
+            bite_collider.enabled = false;
+            print(bite_collider.name);
+        }
     }
 
     public void BiteAnimationEnd()
@@ -27,6 +35,7 @@ public class Wolf_Movement : MonoBehaviour
         is_biting = false;
         animator.SetInteger("isBite", -1);
     }
+    
     private void Update()
     {
         if (!is_biting && Input.GetKeyDown(KeyCode.Space))

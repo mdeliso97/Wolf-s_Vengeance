@@ -1046,10 +1046,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 133341036626741064, guid: 36bbec2e878a60344aa42f2ca0446a0e, type: 3}
-      propertyPath: sqr_max_speed
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 3933549030314119252, guid: 36bbec2e878a60344aa42f2ca0446a0e, type: 3}
       propertyPath: m_Name
       value: Wolf
