@@ -45,8 +45,6 @@ public class World : MonoBehaviour
     }
 
     void Update() {
-        SetViewportEdgePoints();
-
         // float timeStart = Time.realtimeSinceStartup;
         LoadChunks();
         // time += Time.realtimeSinceStartup - timeStart;
@@ -65,11 +63,7 @@ public class World : MonoBehaviour
 
         if (Vector2.Distance(new Vector2(camera.transform.position.x, camera.transform.position.y), new Vector2(bossPosition.x, bossPosition.y))< 10 && !isBossInitiated)
         {
-
-
             StartBossSequence();
-            
-
             isBossInitiated=true;
         }
             
@@ -84,7 +78,6 @@ public class World : MonoBehaviour
         }
     }
 
-
     private void StartBossSequence()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("jaeger");
@@ -94,6 +87,7 @@ public class World : MonoBehaviour
         }
         Instantiate(bossJaegerPrefab, bossPosition, Quaternion.identity);
     }
+
     private void LoadChunks() {
         Vector3 topRight = camera.ViewportToWorldPoint(new Vector3(1, 1, 0));
         Vector3 bottomLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, 0));
@@ -211,9 +205,9 @@ public class World : MonoBehaviour
         int amountHorizontal = (int)(amount / 2f / (1 + aspectRatio));
         int amountVertical = (int)(amount / 2f - amountHorizontal);
 
-        Debug.Log("num in x " + amountHorizontal);
-        Debug.Log("num in y " + amountVertical);
-        Debug.Log("total " + (amountHorizontal + amountVertical) * 2);
+        // Debug.Log("num in x " + amountHorizontal);
+        // Debug.Log("num in y " + amountVertical);
+        // Debug.Log("total " + (amountHorizontal + amountVertical) * 2);
 
         for (int i = 0; i < amountVertical; i++) {
             float y = bottomLeft.y + (i + 1) * height / (amountVertical + 1);

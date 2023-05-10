@@ -6,21 +6,20 @@ using UnityEngine;
 
 public class Wolf_isBiting : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject animatedObject;
     public string animationName;
-    int key = 0;
-    bool isPlaying = false;
+
+    private int key = 0;
+    private bool isPlaying = false;
+    private Animator animator;
+
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Animator animator = GetComponent<Animator>();
-
         IEnumerator SetIsBite(int value, float delay)
         {
             yield return new WaitForSeconds(delay);

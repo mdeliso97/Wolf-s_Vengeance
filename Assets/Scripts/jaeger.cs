@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class NewBehaviourScript : MonoBehaviour
@@ -12,13 +13,18 @@ public class NewBehaviourScript : MonoBehaviour
     public Weapon weapon;
     public float walkingDistance = 12;
 
-    Vector2 wolfPosition;
-    Vector2 selfPosition;
+    private Vector2 wolfPosition;
+    private Vector2 selfPosition;
 
-    float isShooting = 0f;
-    bool isWalking = true;
-    float distanceToWolf = 0f;
+    private float isShooting = 0f;
+    private bool isWalking = true;
+    private float distanceToWolf = 0f;
+    private int biteLayer;
 
+    private void Start()
+    {
+        biteLayer = LayerMask.NameToLayer("bite");
+    }
 
     // Update is called once per frame
     void Update()
@@ -74,4 +80,13 @@ public class NewBehaviourScript : MonoBehaviour
 
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("collision with layer: " + collision.gameObject.layer);
+        if (collision.gameObject.layer == biteLayer)
+        {
+            Debug.Log("the wolf bit me!");
+            Destroy(this);
+        }
+    }
 }
