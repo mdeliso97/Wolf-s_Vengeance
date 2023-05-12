@@ -6,6 +6,7 @@ public class sniper : Weapon
 {
 
     public Transform firePoint;
+
     public override void Fire()
     {
         GameObject bullet1 = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);

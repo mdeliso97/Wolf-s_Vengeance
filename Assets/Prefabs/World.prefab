@@ -307,17 +307,21 @@ MonoBehaviour:
   - {fileID: 3169297522142949298, guid: 0256b87592fc6632fb64b1cc5e216536, type: 3}
   - {fileID: 3169297522142949298, guid: 3f0e97b3190fa6c109768e4460fa3a6d, type: 3}
   - {fileID: 3169297522142949298, guid: 28ff8cade26782a1a825690f32afd70c, type: 3}
+  hunters: []
   points:
   - {fileID: 7544359813142080733}
   - {fileID: 2441180946912153394}
   - {fileID: 7909807869528607761}
   - {fileID: 6751246827390444582}
-  boss: {fileID: 1684952005976964496}
+  bossBase: {fileID: 0}
+  bossJaegerPrefab: {fileID: 0}
+  isBossInitiated: 0
   bossDirectionUI: {fileID: 7471613683910334491}
   camera: {fileID: 0}
   spawnTreeDensity: 20
   bossTreeDensity: 1
   bossDistance: 1000
+  spawnInterval: 5
 --- !u!1 &5889367267999963666
 GameObject:
   m_ObjectHideFlags: 0

@@ -57,11 +57,11 @@ CircleCollider2D:
     m_Bits: 0
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2147483647
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 0
-  m_IsTrigger: 0
+    m_Bits: 2147483647
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.3, y: 0.18}
@@ -124,11 +124,11 @@ CircleCollider2D:
     m_Bits: 0
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2147483647
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 0
-  m_IsTrigger: 0
+    m_Bits: 2147483647
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.3, y: -0.3}
@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 133341036626741064}
   - component: {fileID: 6645641907427899948}
   - component: {fileID: 6988509624492214154}
+  - component: {fileID: 4219096847816940904}
   m_Layer: 8
   m_Name: Wolf
   m_TagString: Untagged
@@ -296,7 +297,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3933549030314119252}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -308,10 +309,10 @@ BoxCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 1975
+    m_Bits: 2147483647
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 1975
+    m_Bits: 2147483647
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -334,6 +335,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6879234, y: 0.3172139}
   m_EdgeRadius: 0
+--- !u!70 &4219096847816940904
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3933549030314119252}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0010595636, y: -0.08821712}
+  m_Size: {x: 0.68900627, y: 0.3030102}
+  m_Direction: 1
 --- !u!1 &5657082873279197738
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,11 +427,11 @@ CircleCollider2D:
     m_Bits: 0
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2147483647
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 0
-  m_IsTrigger: 0
+    m_Bits: 2147483647
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.3, y: -0.3}
@@ -594,11 +630,11 @@ CircleCollider2D:
     m_Bits: 0
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2147483647
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 0
-  m_IsTrigger: 0
+    m_Bits: 2147483647
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.3, y: 0.18}

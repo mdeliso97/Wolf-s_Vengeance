@@ -80,13 +80,11 @@ public class NewBehaviourScript : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision with layer: " + collision.gameObject.layer);
         if (collision.gameObject.layer == biteLayer)
         {
-            Debug.Log("the wolf bit me!");
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
