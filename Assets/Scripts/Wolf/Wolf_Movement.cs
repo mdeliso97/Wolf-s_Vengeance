@@ -1,24 +1,36 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Wolf_Movement : MonoBehaviour
 {
     public float wolf_speed = 20f;
     public float sqr_max_speed = 100f;
+    public float hitCooldownTime = 2f;
 
     private bool is_walking = false;
     private bool is_biting = false;
     private int active_bite_collider_index = -1;
 
+    private int bulletLayer;
+    private float hitTime = 0f;
+    private bool isHit = false;
+
+    private Health health;
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer sprite_renderer;
+    private CapsuleCollider2D capsule_collider;
     private CircleCollider2D[] bite_colliders;
 
     void Start()
     {
+        bulletLayer = LayerMask.NameToLayer("bullet");
+
+        health = GetComponent<Health>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite_renderer = GetComponent<SpriteRenderer>();
+        capsule_collider = GetComponent<CapsuleCollider2D>();
         bite_colliders = GetComponentsInChildren<CircleCollider2D>();
 
         // sort the colliders by name
@@ -39,6 +51,19 @@ public class Wolf_Movement : MonoBehaviour
     
     private void Update()
     {
+        // update hit cooldown
+        if (isHit) {
+            hitTime += Time.deltaTime;
+
+            if (hitTime >= hitCooldownTime) {
+                isHit = false;
+                hitTime = 0f;
+                capsule_collider.excludeLayers = LayerMask.GetMask();
+                sprite_renderer.color = new Color(sprite_renderer.color.r, sprite_renderer.color.g, sprite_renderer.color.b, 1f);
+            }
+        }
+
+        // start biting
         if (!is_biting && Input.GetKeyDown(KeyCode.Space))
         {
             is_biting = true;
@@ -78,11 +103,28 @@ public class Wolf_Movement : MonoBehaviour
             is_walking = new_is_walking;
             animator.SetBool("isWalk", is_walking);
         }
+        // flip sprite depending on current walk direction
         if (new_is_walking)
         {
             if ((sprite_renderer.flipX && rb.velocity.x > 0) || (!sprite_renderer.flipX && rb.velocity.x < 0))
             {
                 sprite_renderer.flipX = !sprite_renderer.flipX;
+            }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!isHit && collision.gameObject.layer == bulletLayer) {
+            health.health--;
+
+            isHit = true;
+            capsule_collider.excludeLayers = LayerMask.GetMask("bullet");
+            sprite_renderer.color = new Color(sprite_renderer.color.r, sprite_renderer.color.g, sprite_renderer.color.b, 0.2f);
+
+            if (health.health == 0)
+            {
+                SceneManager.LoadScene("MenuScene");
             }
         }
     }

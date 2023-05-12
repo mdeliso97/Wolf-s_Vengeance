@@ -318,7 +318,7 @@ MonoBehaviour:
   isBossInitiated: 0
   bossDirectionUI: {fileID: 7471613683910334491}
   camera: {fileID: 0}
-  spawnTreeDensity: 20
+  spawnTreeDensity: 10
   bossTreeDensity: 1
   bossDistance: 1000
   spawnInterval: 5

@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 6645641907427899948}
   - component: {fileID: 6988509624492214154}
   - component: {fileID: 4219096847816940904}
+  - component: {fileID: 1120047996738606431}
   m_Layer: 8
   m_Name: Wolf
   m_TagString: Untagged
@@ -174,7 +175,7 @@ Transform:
   - {fileID: 1633141919018494023}
   - {fileID: 7383369107855374234}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7554369907008472010
 SpriteRenderer:
@@ -370,6 +371,26 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0010595636, y: -0.08821712}
   m_Size: {x: 0.68900627, y: 0.3030102}
   m_Direction: 1
+--- !u!114 &1120047996738606431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3933549030314119252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1748711817445d7429ff971e2e7d577d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  numOfHearts: 3
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fullHeart: {fileID: 21300000, guid: 9fce4b15da8aab74da350052f3c128db, type: 3}
+  emptyHeart: {fileID: 21300000, guid: 7ff82a32343e8244aabc6dd59552b66b, type: 3}
 --- !u!1 &5657082873279197738
 GameObject:
   m_ObjectHideFlags: 0
