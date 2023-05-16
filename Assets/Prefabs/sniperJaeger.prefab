@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7493804655005313149, guid: c889062cb9f0ee148a6710ed06ea17fc, type: 3}
+  bombPrefab: {fileID: 7493804655005313149, guid: 1006886293a6df541a09ca1d7b692910, type: 3}
   fireForce: 10
   firePoint: {fileID: 581492585455000232}
 --- !u!58 &222405316098785354
@@ -282,6 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7493804655005313149, guid: c889062cb9f0ee148a6710ed06ea17fc, type: 3}
+  bombPrefab: {fileID: 0}
   fireForce: 5
   firePoint1: {fileID: 581492585455000232}
   firePoint2: {fileID: 0}

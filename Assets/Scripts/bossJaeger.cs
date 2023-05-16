@@ -21,8 +21,7 @@ public class bossJaeger : MonoBehaviour
 
     void chooseAttack()
     {
-        int rand = UnityEngine.Random.Range(0, 3); // Generate a random integer either 0 or 1
-        print(rand);
+        int rand = UnityEngine.Random.Range(0, 3);
 
         switch (rand)
         {
@@ -38,7 +37,18 @@ public class bossJaeger : MonoBehaviour
 
     IEnumerator CannonAttackCoroutine()
     {
-        return null;
+        float duration = 2f;
+        float startTime = Time.time;
+
+        while (Time.time - startTime < duration)
+        {
+            weapon2.transform.RotateAround(rb.position, new Vector3(0, 0, 1), Time.deltaTime*10f);
+
+            yield return null;
+        }
+
+        weapon1.FireBomb();
+        weapon2.FireBomb();
     }
 
     IEnumerator DashAttackCoroutine()

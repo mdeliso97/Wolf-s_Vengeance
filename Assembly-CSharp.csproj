@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Wolf\Sort.cs" />
     <Compile Include="Assets\Scripts\Wolf\Wolf_Moving.cs" />
     <Compile Include="Assets\Scripts\Hunter_Bited.cs" />
+    <Compile Include="Assets\Scripts\bomb.cs" />
     <Compile Include="Assets\Scripts\World\Map.cs" />
     <Compile Include="Assets\Scripts\weapon.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
