@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Versioning;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class bossJaeger : MonoBehaviour
@@ -11,11 +12,17 @@ public class bossJaeger : MonoBehaviour
     public Rigidbody2D rb;
     public Weapon weapon1;
     public Weapon weapon2;
+    public BossHealth health;
 
     float isShooting = 0f;
 
+    private int biteLayer;
+
+    public bool active = false;
+
     void Start()
     {
+        biteLayer = LayerMask.NameToLayer("bite");
         InvokeRepeating("chooseAttack", 0, 10);
     }
 
@@ -95,6 +102,21 @@ public class bossJaeger : MonoBehaviour
             transform.Rotate(0, 0, 100*Time.deltaTime);
 
             yield return null;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == biteLayer)
+        {
+            health.health--;
+            print(health.health);
+
+            if (health.health == 0)
+            {
+                SceneManager.LoadScene("MenuScene");
+            }
+
         }
     }
 }

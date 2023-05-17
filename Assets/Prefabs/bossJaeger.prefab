@@ -15,10 +15,11 @@ GameObject:
   - component: {fileID: -6072754130648444375}
   - component: {fileID: 1884886600439520947}
   - component: {fileID: 7358941620102940194}
+  - component: {fileID: 8708638208123387299}
   - component: {fileID: 2705050198314182475}
   m_Layer: 7
   m_Name: bossJaeger
-  m_TagString: jaeger
+  m_TagString: bossJaeger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,6 +171,8 @@ MonoBehaviour:
   rb: {fileID: 4505261622880392130}
   weapon1: {fileID: 4154759208378720659}
   weapon2: {fileID: 2563783731751677320}
+  health: {fileID: 8708638208123387299}
+  active: 0
 --- !u!114 &1884886600439520947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +205,28 @@ MonoBehaviour:
   bombPrefab: {fileID: 7493804655005313149, guid: 1006886293a6df541a09ca1d7b692910, type: 3}
   fireForce: 5
   firePoint: {fileID: 4203489882812415126}
+--- !u!114 &8708638208123387299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810369547973779251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 550b8d930cf53334ea49a9d1e38c4ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  numOfHearts: 5
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fullHeart: {fileID: 21300000, guid: fa1fa9d5581843541a10fda7f980eea4, type: 3}
+  emptyHeart: {fileID: 21300000, guid: 4a6a5fb2cfa16a84782fcae8301026f7, type: 3}
 --- !u!58 &2705050198314182475
 CircleCollider2D:
   m_ObjectHideFlags: 0

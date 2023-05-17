@@ -3,7 +3,11 @@ guid: 5524ab172ac922b48870f9dcd73a2a0a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bossBase: {fileID: 3315297796147548725, guid: e5324204133b46b7e80b4f95f900711e, type: 3}
+  - bossJaegerPrefab: {fileID: 2810369547973779251, guid: f4d2dc41aea7fdf46864e58618abdc0d, type: 3}
+  - bossDirectionUI: {instanceID: 0}
+  - camera: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

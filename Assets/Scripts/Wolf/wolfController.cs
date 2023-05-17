@@ -60,11 +60,8 @@ public class wolfController : MonoBehaviour
             mBoxCollider.excludeLayers = LayerMask.GetMask("bullet");
             mSpriteRenderer.color = new Color(mSpriteRenderer.color.r, mSpriteRenderer.color.g, mSpriteRenderer.color.b, 0.2f);
 
-            print(health.health);
             if (health.health == 0)
             {
-                print("you ded");
-                //Time.timeScale = 0;
                 SceneManager.LoadScene("MenuScene");
             }
         }

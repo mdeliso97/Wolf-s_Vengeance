@@ -313,8 +313,8 @@ MonoBehaviour:
   - {fileID: 2441180946912153394}
   - {fileID: 7909807869528607761}
   - {fileID: 6751246827390444582}
-  bossBase: {fileID: 0}
-  bossJaegerPrefab: {fileID: 0}
+  bossBase: {fileID: 3315297796147548725, guid: e5324204133b46b7e80b4f95f900711e, type: 3}
+  bossJaegerPrefab: {fileID: 2810369547973779251, guid: f4d2dc41aea7fdf46864e58618abdc0d, type: 3}
   isBossInitiated: 0
   bossDirectionUI: {fileID: 7471613683910334491}
   camera: {fileID: 0}

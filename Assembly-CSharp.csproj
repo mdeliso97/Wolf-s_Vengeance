@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Wolf\Wolf_decision.cs" />
     <Compile Include="Assets\Scripts\World\Chunk.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Scripts\BossHealth.cs" />
     <Compile Include="Assets\Scripts\bossJaeger.cs" />
     <Compile Include="Assets\Scripts\Wolf\Wolf_isBiting.cs" />
     <Compile Include="Assets\Scripts\Wolf\wolfController.cs" />

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - jaeger
   - bullet
+  - tree
+  - bossJaeger
   layers:
   - Default
   - TransparentFX

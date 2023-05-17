@@ -17,6 +17,7 @@ public class World : MonoBehaviour
     public bool isBossInitiated = false;
 
     public Image bossDirectionUI;
+    public Image[] bossHearts;
 
     [Header("Camera")]
     public Camera camera;
@@ -42,6 +43,10 @@ public class World : MonoBehaviour
 
     void Start() {
         SetBossPosition();
+        for (int i = 0; i < bossHearts.Length; i++)
+        {
+            bossHearts[i].enabled = false;
+        }
     }
 
     void Update() {
@@ -85,7 +90,13 @@ public class World : MonoBehaviour
         {
             Destroy(enemies[i]);
         }
-        Instantiate(bossJaegerPrefab, bossPosition, Quaternion.identity);
+        print(bossJaegerPrefab);
+        for (int i = 0; i < bossHearts.Length; i++)
+        {
+            bossHearts[i].enabled = true;
+        }
+        bossJaegerPrefab.SetActive(true);
+        bossJaegerPrefab.transform.position = bossPosition;
     }
 
     private void LoadChunks() {
@@ -124,7 +135,7 @@ public class World : MonoBehaviour
                     if (freeTrees.Count < numTrees) {
                         int missingTrees = numTrees - freeTrees.Count;
                         for (int i = 0; i < missingTrees; i++) {
-                            int treeIndex = 0; // Random.Range(0, trees.Count);
+                            int treeIndex = Random.Range(0, trees.Count);// int treeIndex = 0;
                             freeTrees.Add(Instantiate(trees[treeIndex], new Vector3(0, 0, 0), Quaternion.identity));
                         }
                         // Debug.Log("Instantiated " + missingTrees + " trees");
