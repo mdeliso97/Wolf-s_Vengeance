@@ -31,8 +31,8 @@ public class shotgun : Weapon
         GameObject bullet3 = Instantiate(bulletPrefab, firePoint3.position, firePoint3.rotation);
         bullet3.GetComponent<Rigidbody2D>().AddForce(firePoint3.up * fireForce, ForceMode2D.Impulse);
     }
-    //public void Play()
-    //{
-
-    //}
+    public override void FireBomb()
+    {
+       
+    }
 }

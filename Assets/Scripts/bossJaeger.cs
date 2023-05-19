@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Versioning;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class bossJaeger : MonoBehaviour
@@ -11,18 +12,23 @@ public class bossJaeger : MonoBehaviour
     public Rigidbody2D rb;
     public Weapon weapon1;
     public Weapon weapon2;
+    public BossHealth health;
 
     float isShooting = 0f;
 
+    private int biteLayer;
+
+    public bool active = false;
+
     void Start()
     {
+        biteLayer = LayerMask.NameToLayer("bite");
         InvokeRepeating("chooseAttack", 0, 10);
     }
 
     void chooseAttack()
     {
-        int rand = UnityEngine.Random.Range(0, 3); // Generate a random integer either 0 or 1
-        print(rand);
+        int rand = UnityEngine.Random.Range(0, 3);
 
         switch (rand)
         {
@@ -38,7 +44,18 @@ public class bossJaeger : MonoBehaviour
 
     IEnumerator CannonAttackCoroutine()
     {
-        return null;
+        float duration = 2f;
+        float startTime = Time.time;
+
+        while (Time.time - startTime < duration)
+        {
+            weapon2.transform.RotateAround(rb.position, new Vector3(0, 0, 1), Time.deltaTime*10f);
+
+            yield return null;
+        }
+
+        weapon1.FireBomb();
+        weapon2.FireBomb();
     }
 
     IEnumerator DashAttackCoroutine()
@@ -85,6 +102,21 @@ public class bossJaeger : MonoBehaviour
             transform.Rotate(0, 0, 100*Time.deltaTime);
 
             yield return null;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == biteLayer)
+        {
+            health.health--;
+            print(health.health);
+
+            if (health.health == 0)
+            {
+                SceneManager.LoadScene("MenuScene");
+            }
+
         }
     }
 }
