@@ -21,6 +21,8 @@ public class Wolf_Movement : MonoBehaviour
     private SpriteRenderer sprite_renderer;
     private CapsuleCollider2D capsule_collider;
     private CircleCollider2D[] bite_colliders;
+    private AudioSource bite0;
+    private AudioSource bite1;
 
     void Start()
     {
@@ -32,6 +34,8 @@ public class Wolf_Movement : MonoBehaviour
         sprite_renderer = GetComponent<SpriteRenderer>();
         capsule_collider = GetComponent<CapsuleCollider2D>();
         bite_colliders = GetComponentsInChildren<CircleCollider2D>();
+        bite0 = GameObject.Find("SoundBite0").GetComponent<AudioSource>();
+        bite1 = GameObject.Find("SoundBite1").GetComponent<AudioSource>();
 
         // sort the colliders by name
         System.Array.Sort(bite_colliders, new Sort());
@@ -69,12 +73,14 @@ public class Wolf_Movement : MonoBehaviour
             is_biting = true;
             if (rb.velocity.y < 0)
             {
+                bite0.Play();
                 animator.SetInteger("isBite", 0);
                 active_bite_collider_index = sprite_renderer.flipX ? 2 : 3;
                 bite_colliders[active_bite_collider_index].enabled = true;
             }
             else
             {
+                bite1.Play();
                 animator.SetInteger("isBite", 1);
                 active_bite_collider_index = sprite_renderer.flipX ? 1 : 0;
                 bite_colliders[active_bite_collider_index].enabled = true;
