@@ -11,6 +11,7 @@ public class NewBehaviourScript : MonoBehaviour
     public float moveSpeed = 1f;
     public Rigidbody2D rb;
     public Weapon weapon;
+    //public AudioClip gunshot;
     public float walkingDistance = 12;
 
     private Vector2 wolfPosition;

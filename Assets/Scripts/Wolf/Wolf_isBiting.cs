@@ -8,7 +8,8 @@ public class Wolf_isBiting : MonoBehaviour
 {
     public GameObject animatedObject;
     public string animationName;
-
+    public AudioSource bite0Audio;
+    public AudioSource bite1Audio;
     private int key = 0;
     private bool isPlaying = false;
     private Animator animator;
@@ -16,6 +17,8 @@ public class Wolf_isBiting : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        bite0Audio = GameObject.Find("Bite0Sound").GetComponent<AudioSource>();
+        bite1Audio = GameObject.Find("Bite1Sound").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -34,6 +37,7 @@ public class Wolf_isBiting : MonoBehaviour
                 animator.SetBool("isPlaying", isPlaying);
                 key = 1;
                 StartCoroutine(SetIsBite(key, 0f)); // set isBite to 1 after a 0.1 second delay
+                bite1Audio.Play();
             }
             else if (key == 1 && isPlaying == false)
             {
@@ -41,6 +45,7 @@ public class Wolf_isBiting : MonoBehaviour
                 animator.SetBool("isPlaying", isPlaying);
                 key = 0;
                 StartCoroutine(SetIsBite(key, 0f)); // set isBite to 0 after a 0.1 second delay
+                bite0Audio.Play();
             }
         }
         else
