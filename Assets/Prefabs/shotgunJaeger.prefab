@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 4505261622880392130}
   - component: {fileID: 504143905429720283}
   - component: {fileID: 3909066903729424612}
+  - component: {fileID: 6784767556966806227}
   m_Layer: 7
   m_Name: shotgunJaeger
   m_TagString: jaeger
@@ -60,8 +61,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2810369547973779251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 212.94798, y: 190.41, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 206.0809, y: 195.4768, z: 0}
+  m_LocalScale: {x: 0.14158446, y: 0.15558998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5361006298007154047}
@@ -110,12 +111,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e1659cbeed3042a41bc36e3b5a20a8b6, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 16, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -219,6 +220,27 @@ MonoBehaviour:
   firePoint3: {fileID: 6824548204350937126}
   GunshotSound: {fileID: 0}
   shotgunAudio: {fileID: 9001952238850729307}
+--- !u!95 &6784767556966806227
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810369547973779251}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6b577251f1e845246bce3af02210bfef, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2826240237830095577
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +252,7 @@ GameObject:
   - component: {fileID: 5361006298007154047}
   - component: {fileID: 8493480196527663711}
   - component: {fileID: 5116456576583653592}
+  - component: {fileID: 2809915993963812707}
   m_Layer: 0
   m_Name: weapon
   m_TagString: Untagged
@@ -244,9 +267,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2826240237830095577}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.11, z: 0}
-  m_LocalScale: {x: 0.20114094, y: 1, z: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 3.9777, y: -1.6589, z: 0}
+  m_LocalScale: {x: 6.1912866, y: 3.8465, z: 6.9234533}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5148858853109004024}
@@ -255,7 +278,7 @@ Transform:
   - {fileID: 3705193050462999330}
   m_Father: {fileID: 7284888288419107955}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &8493480196527663711
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -328,6 +351,27 @@ MonoBehaviour:
   firePoint3: {fileID: 6824548204350937126}
   GunshotSound: {fileID: 0}
   shotgunAudio: {fileID: 9001952238850729307}
+--- !u!95 &2809915993963812707
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826240237830095577}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5380453422585368794
 GameObject:
   m_ObjectHideFlags: 0

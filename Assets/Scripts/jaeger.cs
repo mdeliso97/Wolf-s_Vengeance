@@ -22,9 +22,15 @@ public class NewBehaviourScript : MonoBehaviour
     private float distanceToWolf = 0f;
     private int biteLayer;
 
+    private Animator animator;
+    private SpriteRenderer sprite_renderer;
+
     private void Start()
     {
         biteLayer = LayerMask.NameToLayer("bite");
+
+        animator = GetComponent<Animator>();
+        sprite_renderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -36,17 +42,21 @@ public class NewBehaviourScript : MonoBehaviour
 
         if (distanceToWolf > walkingDistance)
         {
+            animator.SetBool("isWalk", true);
             isWalking = true;
 
         } else
         {
+            animator.SetBool("isWalk", false);
             isWalking = false;
         }
 
         if(isShooting>3 && ! isWalking)
         {
             weapon.Fire();
+            animator.SetBool("isShooting", true);
             isShooting = 0;
+            animator.SetBool("isShooting", false);
         }
         isShooting += Time.deltaTime;
 
@@ -75,8 +85,27 @@ public class NewBehaviourScript : MonoBehaviour
     {
 
         Vector2 aimDirection = wolfPosition - rb.position;
-        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         rb.rotation = aimAngle;
+
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
+
+        // set animator isWalk parameter
+        bool new_is_walking = rb.velocity.sqrMagnitude > 0.1;
+        if (isWalking != new_is_walking)
+        {
+            isWalking = new_is_walking;
+            animator.SetBool("isWalk", isWalking);
+        }
+        // flip sprite depending on current walk direction
+        if (new_is_walking)
+        {
+            if ((sprite_renderer.flipX && rb.velocity.x > 0) || (!sprite_renderer.flipX && rb.velocity.x < 0))
+            {
+                sprite_renderer.flipX = !sprite_renderer.flipX;
+            }
+        }
 
 
     }
@@ -85,6 +114,8 @@ public class NewBehaviourScript : MonoBehaviour
     {
         if (collision.gameObject.layer == biteLayer)
         {
+            animator.SetBool("isDead", true);
+
             Destroy(gameObject);
         }
     }
