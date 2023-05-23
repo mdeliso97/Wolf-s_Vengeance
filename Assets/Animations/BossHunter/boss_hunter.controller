@@ -132,7 +132,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: boss_hunter_bear_hit
-  m_Speed: 0.5
+  m_Speed: 0.25
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1488988620677730825}
@@ -327,7 +327,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: boss_hunter_idle
-  m_Speed: 0.5
+  m_Speed: 0.2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2408860520826727554}
@@ -423,7 +423,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: boss_hunter_melee
-  m_Speed: 0.5
+  m_Speed: 0.25
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5015535343656388100}
@@ -451,7 +451,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: boss_hunter_dead
-  m_Speed: 0.5
+  m_Speed: 0.25
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8746878920563116038}
@@ -478,7 +478,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: boss_hunter_walk
-  m_Speed: 0.5
+  m_Speed: 0.25
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1270698400804113826}
