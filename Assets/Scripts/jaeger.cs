@@ -56,6 +56,8 @@ public class NewBehaviourScript : MonoBehaviour
             weapon.Fire();
             animator.SetBool("isShooting", true);
             isShooting = 0;
+        } else
+        {
             animator.SetBool("isShooting", false);
         }
         isShooting += Time.deltaTime;
@@ -88,6 +90,21 @@ public class NewBehaviourScript : MonoBehaviour
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         rb.rotation = aimAngle;
 
+        //// check if the aim angle is pointing downwards or upwards
+        //if (aimAngle > 90f || aimAngle < -90f)
+        //{
+        //    // flip the sprite along the X-axis
+        //    transform.localScale = new Vector3(-0.1415845f, 0.15559f, 1f);
+        //}
+        //else
+        //{
+        //    // Reset the sprite scale if not flipped
+        //    transform.localScale = Vector3.one;
+        //}
+
+        //// Set the rotation of the sprite itself
+        //transform.eulerAngles = new Vector3(0f, 0f, aimAngle);
+
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -115,8 +132,21 @@ public class NewBehaviourScript : MonoBehaviour
         if (collision.gameObject.layer == biteLayer)
         {
             animator.SetBool("isDead", true);
+            StartCoroutine(DestroyAfterAnimation());
 
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
+    }
+
+    private IEnumerator DestroyAfterAnimation()
+    {
+        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.5f)
+        {
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        Destroy(gameObject);
     }
 }

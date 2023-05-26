@@ -13,8 +13,6 @@ public class shotgun : Weapon
 
     void Start()
     {
-        //gunshot = gameObject.AddComponent<AudioSource>();
-        //gunshot.clip = Resources.Load<AudioClip>("Assets/Sound Effects/Gunshot - Sound Effect.mp3");
         shotgunAudio = GameObject.Find("ShotgunSound").GetComponent<AudioSource>();
     }
 
