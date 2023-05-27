@@ -13,6 +13,7 @@ public class bossJaeger : MonoBehaviour
     public Weapon weapon1;
     public Weapon weapon2;
     public BossHealth health;
+    private Animator animator;
 
     float isShooting = 0f;
 
@@ -114,9 +115,21 @@ public class bossJaeger : MonoBehaviour
 
             if (health.health == 0)
             {
-                SceneManager.LoadScene("MenuScene");
+                animator.SetBool("isDead", true);
+                StartCoroutine(ExitAfterAnimation());
             }
-
         }
+    }
+
+    private IEnumerator ExitAfterAnimation()
+    {
+        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.5f)
+        {
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        SceneManager.LoadScene("MenuScene");
     }
 }

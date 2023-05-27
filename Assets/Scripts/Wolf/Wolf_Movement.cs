@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Wolf_Movement : MonoBehaviour
 {
@@ -130,8 +131,22 @@ public class Wolf_Movement : MonoBehaviour
 
             if (health.health == 0)
             {
-                SceneManager.LoadScene("MenuScene");
+                animator.SetBool("isDead", true);
+                StartCoroutine(ExitAfterAnimation());
+
             }
         }
+    }
+
+    private IEnumerator ExitAfterAnimation()
+    {
+        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.5f)
+        {
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        SceneManager.LoadScene("MenuScene");
     }
 }

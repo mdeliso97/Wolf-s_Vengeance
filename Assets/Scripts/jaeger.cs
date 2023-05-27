@@ -1,10 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -85,10 +80,32 @@ public class NewBehaviourScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (animator.GetBool("isDead") != true)
+        {
+            Vector2 aimDirection = wolfPosition - rb.position;
+            float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+            rb.rotation = aimAngle;
 
-        Vector2 aimDirection = wolfPosition - rb.position;
-        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-        rb.rotation = aimAngle;
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float verticalInput = Input.GetAxisRaw("Vertical");
+
+            // set animator isWalk parameter
+            bool new_is_walking = rb.velocity.sqrMagnitude > 0.1;
+            if (isWalking != new_is_walking)
+            {
+                isWalking = new_is_walking;
+                animator.SetBool("isWalk", isWalking);
+            }
+            // flip sprite depending on current walk direction
+            if (new_is_walking)
+            {
+                if ((sprite_renderer.flipX && rb.velocity.x > 0) || (!sprite_renderer.flipX && rb.velocity.x < 0))
+                {
+                    sprite_renderer.flipX = !sprite_renderer.flipX;
+                }
+            }
+        }
+       
 
         //// check if the aim angle is pointing downwards or upwards
         //if (aimAngle > 90f || aimAngle < -90f)
@@ -105,25 +122,6 @@ public class NewBehaviourScript : MonoBehaviour
         //// Set the rotation of the sprite itself
         //transform.eulerAngles = new Vector3(0f, 0f, aimAngle);
 
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
-
-        // set animator isWalk parameter
-        bool new_is_walking = rb.velocity.sqrMagnitude > 0.1;
-        if (isWalking != new_is_walking)
-        {
-            isWalking = new_is_walking;
-            animator.SetBool("isWalk", isWalking);
-        }
-        // flip sprite depending on current walk direction
-        if (new_is_walking)
-        {
-            if ((sprite_renderer.flipX && rb.velocity.x > 0) || (!sprite_renderer.flipX && rb.velocity.x < 0))
-            {
-                sprite_renderer.flipX = !sprite_renderer.flipX;
-            }
-        }
-
 
     }
 
@@ -132,9 +130,8 @@ public class NewBehaviourScript : MonoBehaviour
         if (collision.gameObject.layer == biteLayer)
         {
             animator.SetBool("isDead", true);
+            rb.rotation = 0;
             StartCoroutine(DestroyAfterAnimation());
-
-            //Destroy(gameObject);
         }
     }
 
@@ -145,7 +142,7 @@ public class NewBehaviourScript : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.7f);
 
         Destroy(gameObject);
     }
