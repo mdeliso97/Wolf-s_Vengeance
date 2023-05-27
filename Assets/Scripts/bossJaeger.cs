@@ -23,6 +23,7 @@ public class bossJaeger : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         biteLayer = LayerMask.NameToLayer("bite");
         InvokeRepeating("chooseAttack", 0, 10);
     }

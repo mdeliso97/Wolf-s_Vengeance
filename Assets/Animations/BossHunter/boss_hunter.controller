@@ -481,7 +481,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: boss_hunter_dead
-  m_Speed: 0.25
+  m_Speed: 0.15
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8746878920563116038}
