@@ -60,10 +60,10 @@ public class NewBehaviourScript : MonoBehaviour
         //if (isWalking)
         //{
 
-            Vector2 aimDirection = wolfPosition - rb.position;
-            float d = Vector2.Distance(wolfPosition, rb.position);
-            transform.position = Vector2.MoveTowards(selfPosition, wolfPosition - aimDirection.normalized * 
-                (walkingDistance -2) , moveSpeed*Time.deltaTime*d);
+        Vector2 aimDirection = wolfPosition - rb.position;
+        float d = Vector2.Distance(wolfPosition, rb.position);
+        transform.position = Vector2.MoveTowards(selfPosition, wolfPosition - aimDirection.normalized * 
+            (walkingDistance -2) , moveSpeed*Time.deltaTime*d);
 
             //rb.AddForce(new Vector2(aimDirection.x * moveSpeed, aimDirection.y * moveSpeed));
             //rb.velocity = new Vector2(aimDirection.x * moveSpeed, aimDirection.y * moveSpeed);

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5158622833535955172}
   - component: {fileID: 222405316098785354}
   - component: {fileID: 7631585385433783498}
+  - component: {fileID: 7728965213260648077}
   m_Layer: 7
   m_Name: sniperJaeger
   m_TagString: jaeger
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2798575144581135989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 190.87523, y: 190.24861, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1415845, y: 0.15559, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9024856629064972760}
@@ -79,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.094952956, g: 0.5471698, b: 0.05368457, a: 1}
+  m_Sprite: {fileID: -1357583770, guid: 545e37ecd95b3fb449d1b31013f27792, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,6 +123,8 @@ MonoBehaviour:
   bombPrefab: {fileID: 7493804655005313149, guid: 1006886293a6df541a09ca1d7b692910, type: 3}
   fireForce: 10
   firePoint: {fileID: 581492585455000232}
+  GunshotSound: {fileID: 0}
+  shotgunAudio: {fileID: 0}
 --- !u!58 &222405316098785354
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -154,9 +157,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.9259186, y: -0.6969986}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 4.150078
 --- !u!50 &7631585385433783498
 Rigidbody2D:
   serializedVersion: 4
@@ -184,6 +187,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &7728965213260648077
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2798575144581135989}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: db548fa06b25b9f4a813a4a22ff27237, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3688215615273524631
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,16 +233,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3688215615273524631}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 1.79, z: 0}
-  m_LocalScale: {x: 0.16216832, y: 2.4026368, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7075544, w: 0.7066589}
+  m_LocalPosition: {x: 3.3155, y: -1.4963, z: 0}
+  m_LocalScale: {x: 1.0174882, y: 6.293535, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 581492585455000232}
   - {fileID: 5182228110274219573}
   m_Father: {fileID: 3561073704188640586}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.073}
 --- !u!212 &5461564913479637412
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -261,7 +285,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -335,8 +359,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4ad29a84e2d091e47b154b7e10ffbcb6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
-  m_Pitch: 1.2
+  m_Volume: 0.4
+  m_Pitch: 1.33
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -444,7 +468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6327609039435224848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.79, y: -0.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -483,9 +507,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.1394577, y: -0.29671288}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 3
 --- !u!1 &6657503136505700012
 GameObject:
   m_ObjectHideFlags: 0
