@@ -131,9 +131,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f438be5097e26d45a5645bcbe11628e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wolf_speed: 20
+  wolf_speed: 40
   sqr_max_speed: 100
   hitCooldownTime: 2
+  bite_colliders:
+  - {fileID: 4334614560877519315}
+  - {fileID: 4124953666691018881}
+  - {fileID: 961940783830635792}
+  - {fileID: 6189616534137600851}
 --- !u!50 &2757245806029385718
 Rigidbody2D:
   serializedVersion: 4
@@ -147,7 +152,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 4
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -213,8 +218,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.069506995, y: -10.867941}
-  m_Size: {x: 13.624519, y: 8.243587}
+  m_Offset: {x: 0.000000022690259, y: 0.1903397}
+  m_Size: {x: 13.624521, y: 8.074419}
   m_Direction: 1
 --- !u!82 &6465577919345801455
 AudioSource:
@@ -432,9 +437,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356061121336423810}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.13, y: -0.06, z: 131.08}
-  m_LocalScale: {x: 40, y: 36.9231, z: 30.76925}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6607263314614240509}
@@ -472,8 +477,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.20080742, y: -0.3057672}
-  m_Size: {x: 0.29473013, y: 0.6930272}
+  m_Offset: {x: -7.5, y: 0}
+  m_Size: {x: 10, y: 24}
   m_Direction: 0
 --- !u!1 &1769033978492147202
 GameObject:
@@ -500,8 +505,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769033978492147202}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 131.08}
-  m_LocalScale: {x: 40, y: 36.9231, z: 30.76925}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6607263314614240509}
@@ -539,8 +544,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.20080742, y: -0.3057672}
-  m_Size: {x: 0.29473013, y: 0.6930272}
+  m_Offset: {x: 7.5, y: 0}
+  m_Size: {x: 10, y: 24}
   m_Direction: 0
 --- !u!1 &4094326833940936535
 GameObject:
@@ -694,9 +699,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5239649318643628041}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 131.08}
-  m_LocalScale: {x: 40, y: 36.9231, z: 30.76925}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6607263314614240509}
@@ -734,8 +739,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2008074, y: -0.3057672}
-  m_Size: {x: 0.2947301, y: 0.6930272}
+  m_Offset: {x: 7.5, y: 0}
+  m_Size: {x: 10, y: 24}
   m_Direction: 0
 --- !u!1 &6153113791003146735
 GameObject:
@@ -897,9 +902,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7839216085034374148}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.13, y: -0.06, z: 131.08}
-  m_LocalScale: {x: 40, y: 36.9231, z: 30.76925}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6607263314614240509}
@@ -937,8 +942,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.20080742, y: -0.3057672}
-  m_Size: {x: 0.29473013, y: 0.6930272}
+  m_Offset: {x: 7.5, y: 0}
+  m_Size: {x: 10, y: 24}
   m_Direction: 0
 --- !u!1 &8208942549257316534
 GameObject:

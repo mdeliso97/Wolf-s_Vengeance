@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.Assertions;
 
 public class Wolf_Movement : MonoBehaviour
 {
     public float wolf_speed = 20f;
     public float sqr_max_speed = 100f;
     public float hitCooldownTime = 2f;
+
+    public CapsuleCollider2D[] bite_colliders;
 
     private bool is_walking = false;
     private bool is_biting = false;
@@ -21,7 +24,6 @@ public class Wolf_Movement : MonoBehaviour
     private Animator animator;
     private SpriteRenderer sprite_renderer;
     private CapsuleCollider2D capsule_collider;
-    private CircleCollider2D[] bite_colliders;
     private AudioSource bite0;
     private AudioSource bite1;
 
@@ -34,17 +36,20 @@ public class Wolf_Movement : MonoBehaviour
         animator = GetComponent<Animator>();
         sprite_renderer = GetComponent<SpriteRenderer>();
         capsule_collider = GetComponent<CapsuleCollider2D>();
-        bite_colliders = GetComponentsInChildren<CircleCollider2D>();
+
         bite0 = GameObject.Find("SoundBite0").GetComponent<AudioSource>();
         bite1 = GameObject.Find("SoundBite1").GetComponent<AudioSource>();
 
         // sort the colliders by name
         System.Array.Sort(bite_colliders, new Sort());
         // disable all bite colliders
-        foreach (CircleCollider2D bite_collider in bite_colliders)
+        foreach (CapsuleCollider2D bite_collider in bite_colliders)
         {
             bite_collider.enabled = false;
+            print(bite_collider.name);
         }
+
+        print(capsule_collider.name);
     }
 
     public void BiteAnimationEnd()
@@ -132,21 +137,13 @@ public class Wolf_Movement : MonoBehaviour
             if (health.health == 0)
             {
                 animator.SetBool("isDead", true);
-                StartCoroutine(ExitAfterAnimation());
-
+                rb.drag = 100;
             }
         }
     }
 
-    private IEnumerator ExitAfterAnimation()
+    private void DeadAnimationEnd()
     {
-        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.5f)
-        {
-            yield return null;
-        }
-
-        yield return new WaitForSeconds(0.5f);
-
         SceneManager.LoadScene("MenuScene");
     }
 }

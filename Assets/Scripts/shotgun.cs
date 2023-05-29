@@ -1,33 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class shotgun : Weapon
 {
-    public Transform firePoint1;
-    public Transform firePoint2;
-    public Transform firePoint3;
-    public GameObject GunshotSound;
+    public GameObject firePoint1;
+    public GameObject firePoint2;
+    public GameObject firePoint3;
     public AudioSource shotgunAudio;
-    //public AudioSource gunshot;
-
-    void Start()
-    {
-        shotgunAudio = GameObject.Find("ShotgunSound").GetComponent<AudioSource>();
-    }
 
     public override void Fire()
     {
         shotgunAudio.Play();
 
-        GameObject bullet1 = Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
-        bullet1.GetComponent<Rigidbody2D>().AddForce(firePoint1.up * fireForce, ForceMode2D.Impulse);
+        GameObject bullet1 = Instantiate(bulletPrefab, firePoint1.transform.position, firePoint1.transform.rotation);
+        bullet1.GetComponent<Rigidbody2D>().AddForce(-1 * firePoint1.transform.up * fireForce, ForceMode2D.Impulse);
 
-        GameObject bullet2 = Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
-        bullet2.GetComponent<Rigidbody2D>().AddForce(firePoint2.up * fireForce, ForceMode2D.Impulse);
+        GameObject bullet2 = Instantiate(bulletPrefab, firePoint2.transform.position, firePoint2.transform.rotation);
+        bullet2.GetComponent<Rigidbody2D>().AddForce(-1 * firePoint2.transform.up * fireForce, ForceMode2D.Impulse);
 
-        GameObject bullet3 = Instantiate(bulletPrefab, firePoint3.position, firePoint3.rotation);
-        bullet3.GetComponent<Rigidbody2D>().AddForce(firePoint3.up * fireForce, ForceMode2D.Impulse);
+        GameObject bullet3 = Instantiate(bulletPrefab, firePoint3.transform.position, firePoint3.transform.rotation);
+        bullet3.GetComponent<Rigidbody2D>().AddForce(-1 * firePoint3.transform.up * fireForce, ForceMode2D.Impulse);
     }
     public override void FireBomb()
     {

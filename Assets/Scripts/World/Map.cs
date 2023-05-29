@@ -76,7 +76,7 @@ public class World : MonoBehaviour
         if (time > spawnInterval && !isBossInitiated) {
             Vector3[] spawnPositions = GetSpawnPositions(4);
             foreach (Vector3 spawnPosition in spawnPositions) {
-                Instantiate(hunters[0], spawnPosition, Quaternion.identity);
+                Instantiate(hunters[1], spawnPosition, Quaternion.identity);
 
             }
             time -= spawnInterval;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8561349480196592164}
   - component: {fileID: 4214824188286228403}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: stamm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7333003280072693740}
   - component: {fileID: 3545321042271306387}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: aeste
   m_TagString: Untagged
   m_Icon: {fileID: 0}

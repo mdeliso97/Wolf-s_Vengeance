@@ -115,6 +115,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -122,12 +134,12 @@ TextureImporter:
       name: MiniDwarfHunter_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 193
-        width: 15
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -143,12 +155,12 @@ TextureImporter:
       name: MiniDwarfHunter_1
       rect:
         serializedVersion: 2
-        x: 42
-        y: 193
-        width: 15
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,12 +176,12 @@ TextureImporter:
       name: MiniDwarfHunter_2
       rect:
         serializedVersion: 2
-        x: 74
-        y: 193
-        width: 15
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -185,12 +197,12 @@ TextureImporter:
       name: MiniDwarfHunter_3
       rect:
         serializedVersion: 2
-        x: 106
-        y: 193
-        width: 15
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,12 +218,12 @@ TextureImporter:
       name: MiniDwarfHunter_4
       rect:
         serializedVersion: 2
-        x: 9
-        y: 161
-        width: 15
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,12 +239,12 @@ TextureImporter:
       name: MiniDwarfHunter_5
       rect:
         serializedVersion: 2
-        x: 41
-        y: 161
-        width: 15
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,12 +260,12 @@ TextureImporter:
       name: MiniDwarfHunter_6
       rect:
         serializedVersion: 2
-        x: 74
-        y: 161
-        width: 15
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -269,12 +281,12 @@ TextureImporter:
       name: MiniDwarfHunter_7
       rect:
         serializedVersion: 2
-        x: 106
-        y: 161
-        width: 16
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -290,12 +302,12 @@ TextureImporter:
       name: MiniDwarfHunter_8
       rect:
         serializedVersion: 2
-        x: 138
-        y: 161
-        width: 16
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -311,12 +323,12 @@ TextureImporter:
       name: MiniDwarfHunter_9
       rect:
         serializedVersion: 2
-        x: 170
-        y: 161
-        width: 15
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -332,12 +344,12 @@ TextureImporter:
       name: MiniDwarfHunter_10
       rect:
         serializedVersion: 2
-        x: 10
-        y: 129
-        width: 15
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -353,12 +365,12 @@ TextureImporter:
       name: MiniDwarfHunter_11
       rect:
         serializedVersion: 2
-        x: 42
-        y: 129
-        width: 15
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -374,12 +386,12 @@ TextureImporter:
       name: MiniDwarfHunter_12
       rect:
         serializedVersion: 2
-        x: 74
-        y: 129
-        width: 15
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -395,12 +407,12 @@ TextureImporter:
       name: MiniDwarfHunter_13
       rect:
         serializedVersion: 2
-        x: 10
-        y: 97
-        width: 16
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -416,12 +428,12 @@ TextureImporter:
       name: MiniDwarfHunter_14
       rect:
         serializedVersion: 2
-        x: 43
-        y: 97
-        width: 16
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -437,12 +449,12 @@ TextureImporter:
       name: MiniDwarfHunter_15
       rect:
         serializedVersion: 2
-        x: 75
-        y: 97
-        width: 20
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -458,12 +470,12 @@ TextureImporter:
       name: MiniDwarfHunter_16
       rect:
         serializedVersion: 2
-        x: 106
-        y: 97
-        width: 15
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -479,12 +491,12 @@ TextureImporter:
       name: MiniDwarfHunter_17
       rect:
         serializedVersion: 2
-        x: 139
-        y: 97
-        width: 16
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -500,12 +512,12 @@ TextureImporter:
       name: MiniDwarfHunter_18
       rect:
         serializedVersion: 2
-        x: 171
-        y: 97
-        width: 16
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -521,12 +533,12 @@ TextureImporter:
       name: MiniDwarfHunter_19
       rect:
         serializedVersion: 2
-        x: 202
-        y: 97
-        width: 16
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -542,12 +554,12 @@ TextureImporter:
       name: MiniDwarfHunter_20
       rect:
         serializedVersion: 2
-        x: 9
-        y: 65
-        width: 15
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -563,12 +575,12 @@ TextureImporter:
       name: MiniDwarfHunter_21
       rect:
         serializedVersion: 2
-        x: 40
-        y: 65
-        width: 15
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -584,12 +596,12 @@ TextureImporter:
       name: MiniDwarfHunter_22
       rect:
         serializedVersion: 2
-        x: 75
-        y: 65
-        width: 17
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -605,12 +617,12 @@ TextureImporter:
       name: MiniDwarfHunter_23
       rect:
         serializedVersion: 2
-        x: 107
-        y: 65
-        width: 17
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -626,12 +638,12 @@ TextureImporter:
       name: MiniDwarfHunter_24
       rect:
         serializedVersion: 2
-        x: 138
-        y: 65
-        width: 16
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -647,12 +659,12 @@ TextureImporter:
       name: MiniDwarfHunter_25
       rect:
         serializedVersion: 2
-        x: 8
-        y: 33
-        width: 15
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -668,12 +680,12 @@ TextureImporter:
       name: MiniDwarfHunter_26
       rect:
         serializedVersion: 2
-        x: 41
-        y: 33
-        width: 15
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -689,12 +701,12 @@ TextureImporter:
       name: MiniDwarfHunter_27
       rect:
         serializedVersion: 2
-        x: 6
-        y: 1
-        width: 22
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -710,12 +722,12 @@ TextureImporter:
       name: MiniDwarfHunter_28
       rect:
         serializedVersion: 2
-        x: 39
-        y: 1
-        width: 23
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -731,12 +743,12 @@ TextureImporter:
       name: MiniDwarfHunter_29
       rect:
         serializedVersion: 2
-        x: 70
-        y: 1
-        width: 25
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -752,12 +764,12 @@ TextureImporter:
       name: MiniDwarfHunter_30
       rect:
         serializedVersion: 2
-        x: 102
-        y: 1
-        width: 25
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

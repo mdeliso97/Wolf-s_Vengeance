@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1710984228194231993}
   - component: {fileID: 2530755106353289033}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: signal-2023-05-16-115748_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3920377339752907403}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tree 1
   m_TagString: tree
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1490322788342879009}
   - component: {fileID: 958094608218437779}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 203305601143522889}
   - component: {fileID: 2996295142572699288}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: signal-2023-05-16-114056_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
