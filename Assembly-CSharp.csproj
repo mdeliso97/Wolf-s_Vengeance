@@ -59,23 +59,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\World\move.cs" />
-    <Compile Include="Assets\Scripts\Bite_Interaction.cs" />
     <Compile Include="Assets\Scripts\World\NoiseGenerator.cs" />
     <Compile Include="Assets\Scripts\sniper.cs" />
     <Compile Include="Assets\Scripts\Wolf\Sort.cs" />
-    <Compile Include="Assets\Scripts\Wolf\Wolf_Moving.cs" />
-    <Compile Include="Assets\Scripts\Hunter_Bited.cs" />
     <Compile Include="Assets\Scripts\bomb.cs" />
     <Compile Include="Assets\Scripts\World\Map.cs" />
     <Compile Include="Assets\Scripts\weapon.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\Wolf\Wolf_decision.cs" />
     <Compile Include="Assets\Scripts\World\Chunk.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\BossHealth.cs" />
     <Compile Include="Assets\Scripts\bossJaeger.cs" />
-    <Compile Include="Assets\Scripts\Wolf\Wolf_isBiting.cs" />
-    <Compile Include="Assets\Scripts\Wolf\wolfController.cs" />
     <Compile Include="Assets\Scripts\Wolf\Wolf_Movement.cs" />
     <Compile Include="Assets\Scripts\shotgun.cs" />
     <Compile Include="Assets\Scripts\jaeger.cs" />

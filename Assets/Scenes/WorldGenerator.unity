@@ -428,7 +428,11 @@ PrefabInstance:
       objectReference: {fileID: 1243219495}
     - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
       propertyPath: bossDistance
-      value: 100
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
+      propertyPath: spawnTreeDensity
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4434765986674745987, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
       propertyPath: m_Camera

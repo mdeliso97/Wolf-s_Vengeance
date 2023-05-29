@@ -92,6 +92,9 @@ public class Wolf_Movement : MonoBehaviour
                 bite_colliders[active_bite_collider_index].enabled = true;
             }
         }
+
+        // update y coordinate for rendering order
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y / 10000f);
     }
 
     private void FixedUpdate()

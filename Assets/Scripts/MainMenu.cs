@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    wolfController wolfController;
+    Wolf_Movement wolfController;
     public void ExitButton()
     {
         Application.Quit();
@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
     public void addSpeed()
     {
        // SceneManager.LoadScene("GameScene");
-        wolfController.hitCooldownTime = wolfController.hitCooldownTime + 10f;
+        wolfController.hitCooldownTime = wolfController.hitCooldownTime + 0.5f;
     }
 
     public void addRecoveryTime()

@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
@@ -29,6 +28,12 @@ public class NewBehaviourScript : MonoBehaviour
         sprite_renderer = GetComponent<SpriteRenderer>();
 
         wolf = GameObject.Find("Wolf");
+    }
+
+    private void Update()
+    {
+        // update y coordinate for rendering order
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y / 10000f);
     }
 
     private void FixedUpdate()
@@ -95,7 +100,6 @@ public class NewBehaviourScript : MonoBehaviour
     private void AnimationFire()
     {
         weapon.Fire();
-        print("shoot");
     }
 
     private void AnimationDeadEnd()

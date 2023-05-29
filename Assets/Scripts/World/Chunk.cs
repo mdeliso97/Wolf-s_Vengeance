@@ -33,7 +33,7 @@ public class Chunk
                 float t = map[x, y];
                 for (int i = 0; i < 9; i++) {
                     if (t_min_max[i, 0] < t && t < t_min_max[i, 1]) {
-                        Vector3 position = new Vector3(posX*size + x, posY*size + y, y/size + 1);
+                        Vector3 position = new Vector3(posX * size + x, posY * size + y, (posY * size + y) / 10000f);
                         _treePositions.Add(position);
                     }
                 }
