@@ -115,6 +115,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -122,12 +134,12 @@ TextureImporter:
       name: MiniDwarfBearRider_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 193
-        width: 22
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -143,12 +155,12 @@ TextureImporter:
       name: MiniDwarfBearRider_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 193
-        width: 22
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,12 +176,12 @@ TextureImporter:
       name: MiniDwarfBearRider_2
       rect:
         serializedVersion: 2
-        x: 69
-        y: 193
-        width: 22
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -185,12 +197,12 @@ TextureImporter:
       name: MiniDwarfBearRider_3
       rect:
         serializedVersion: 2
-        x: 101
-        y: 193
-        width: 22
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,12 +218,12 @@ TextureImporter:
       name: MiniDwarfBearRider_4
       rect:
         serializedVersion: 2
-        x: 5
-        y: 161
-        width: 22
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,12 +239,12 @@ TextureImporter:
       name: MiniDwarfBearRider_5
       rect:
         serializedVersion: 2
-        x: 34
-        y: 161
-        width: 25
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,12 +260,12 @@ TextureImporter:
       name: MiniDwarfBearRider_6
       rect:
         serializedVersion: 2
-        x: 65
-        y: 163
-        width: 28
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -269,12 +281,12 @@ TextureImporter:
       name: MiniDwarfBearRider_7
       rect:
         serializedVersion: 2
-        x: 99
-        y: 161
-        width: 24
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -290,12 +302,12 @@ TextureImporter:
       name: MiniDwarfBearRider_8
       rect:
         serializedVersion: 2
-        x: 133
-        y: 161
-        width: 22
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -311,12 +323,12 @@ TextureImporter:
       name: MiniDwarfBearRider_9
       rect:
         serializedVersion: 2
-        x: 165
-        y: 161
-        width: 22
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -332,12 +344,12 @@ TextureImporter:
       name: MiniDwarfBearRider_10
       rect:
         serializedVersion: 2
-        x: 5
-        y: 129
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -353,12 +365,12 @@ TextureImporter:
       name: MiniDwarfBearRider_11
       rect:
         serializedVersion: 2
-        x: 35
-        y: 129
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -374,12 +386,12 @@ TextureImporter:
       name: MiniDwarfBearRider_12
       rect:
         serializedVersion: 2
-        x: 69
-        y: 129
-        width: 22
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -395,12 +407,12 @@ TextureImporter:
       name: MiniDwarfBearRider_13
       rect:
         serializedVersion: 2
-        x: 4
-        y: 97
-        width: 22
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -416,12 +428,12 @@ TextureImporter:
       name: MiniDwarfBearRider_14
       rect:
         serializedVersion: 2
-        x: 35
-        y: 97
-        width: 28
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -437,12 +449,12 @@ TextureImporter:
       name: MiniDwarfBearRider_15
       rect:
         serializedVersion: 2
-        x: 67
-        y: 97
-        width: 28
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -458,12 +470,12 @@ TextureImporter:
       name: MiniDwarfBearRider_16
       rect:
         serializedVersion: 2
-        x: 100
-        y: 97
-        width: 22
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -479,12 +491,12 @@ TextureImporter:
       name: MiniDwarfBearRider_17
       rect:
         serializedVersion: 2
-        x: 133
-        y: 97
-        width: 22
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -500,12 +512,12 @@ TextureImporter:
       name: MiniDwarfBearRider_18
       rect:
         serializedVersion: 2
-        x: 4
-        y: 65
-        width: 19
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -521,12 +533,12 @@ TextureImporter:
       name: MiniDwarfBearRider_19
       rect:
         serializedVersion: 2
-        x: 36
-        y: 65
-        width: 19
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -542,12 +554,12 @@ TextureImporter:
       name: MiniDwarfBearRider_20
       rect:
         serializedVersion: 2
-        x: 70
-        y: 65
-        width: 22
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -563,12 +575,12 @@ TextureImporter:
       name: MiniDwarfBearRider_21
       rect:
         serializedVersion: 2
-        x: 102
-        y: 65
-        width: 23
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -584,12 +596,12 @@ TextureImporter:
       name: MiniDwarfBearRider_22
       rect:
         serializedVersion: 2
-        x: 134
-        y: 65
-        width: 20
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -605,12 +617,12 @@ TextureImporter:
       name: MiniDwarfBearRider_23
       rect:
         serializedVersion: 2
-        x: 165
-        y: 65
-        width: 22
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -626,12 +638,12 @@ TextureImporter:
       name: MiniDwarfBearRider_24
       rect:
         serializedVersion: 2
-        x: 3
-        y: 33
-        width: 21
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -647,12 +659,12 @@ TextureImporter:
       name: MiniDwarfBearRider_25
       rect:
         serializedVersion: 2
-        x: 36
-        y: 33
-        width: 22
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -668,12 +680,12 @@ TextureImporter:
       name: MiniDwarfBearRider_26
       rect:
         serializedVersion: 2
-        x: 6
-        y: 1
-        width: 22
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -689,12 +701,12 @@ TextureImporter:
       name: MiniDwarfBearRider_27
       rect:
         serializedVersion: 2
-        x: 39
-        y: 1
-        width: 23
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -710,12 +722,12 @@ TextureImporter:
       name: MiniDwarfBearRider_28
       rect:
         serializedVersion: 2
-        x: 69
-        y: 1
-        width: 27
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -731,12 +743,12 @@ TextureImporter:
       name: MiniDwarfBearRider_29
       rect:
         serializedVersion: 2
-        x: 102
-        y: 1
-        width: 25
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

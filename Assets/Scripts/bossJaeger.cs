@@ -13,6 +13,8 @@ public class bossJaeger : MonoBehaviour
     public Weapon weapon1;
     public Weapon weapon2;
     public BossHealth health;
+
+    private GameObject wolf;
     private Animator animator;
 
     float isShooting = 0f;
@@ -23,6 +25,7 @@ public class bossJaeger : MonoBehaviour
 
     void Start()
     {
+        wolf = GameObject.Find("Wolf");
         animator = GetComponent<Animator>();
         biteLayer = LayerMask.NameToLayer("bite");
         InvokeRepeating("chooseAttack", 0, 10);
@@ -30,6 +33,8 @@ public class bossJaeger : MonoBehaviour
 
     void chooseAttack()
     {
+        print("boss choose attack");
+
         int rand = UnityEngine.Random.Range(0, 3);
 
         switch (rand)
@@ -46,6 +51,8 @@ public class bossJaeger : MonoBehaviour
 
     IEnumerator CannonAttackCoroutine()
     {
+        print("cannon attack");
+
         float duration = 2f;
         float startTime = Time.time;
 
@@ -62,10 +69,12 @@ public class bossJaeger : MonoBehaviour
 
     IEnumerator DashAttackCoroutine()
     {
+        print("dash attack");
+
         int dashCount = 0;
         while (dashCount < 3)
         {
-            Vector2 wolfPosition = GameObject.Find("Wolf").transform.position;
+            Vector2 wolfPosition = wolf.transform.position;
             Vector2 aimDirection = wolfPosition - rb.position;
             float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
             rb.rotation = aimAngle;
@@ -88,6 +97,8 @@ public class bossJaeger : MonoBehaviour
 
     IEnumerator SpinAttackCoroutine()
     {
+        print("spin attack");
+
         float duration = 8f; 
         float startTime = Time.time;
 
@@ -109,6 +120,7 @@ public class bossJaeger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print("im bit");
         if (collision.gameObject.layer == biteLayer)
         {
             health.health--;
@@ -117,20 +129,12 @@ public class bossJaeger : MonoBehaviour
             if (health.health == 0)
             {
                 animator.SetBool("isDead", true);
-                StartCoroutine(ExitAfterAnimation());
             }
         }
     }
 
-    private IEnumerator ExitAfterAnimation()
+    private void AnimationDeadEnd()
     {
-        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.5f)
-        {
-            yield return null;
-        }
-
-        yield return new WaitForSeconds(0.5f);
-
         SceneManager.LoadScene("MenuScene");
     }
 }

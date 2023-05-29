@@ -51,13 +51,6 @@ public class Wolf_Movement : MonoBehaviour
 
         print(capsule_collider.name);
     }
-
-    public void BiteAnimationEnd()
-    {
-        is_biting = false;
-        animator.SetInteger("isBite", -1);
-        bite_colliders[active_bite_collider_index].enabled = false;
-    }
     
     private void Update()
     {
@@ -142,11 +135,31 @@ public class Wolf_Movement : MonoBehaviour
                 animator.SetBool("isDead", true);
                 rb.drag = 100;
             }
+            else
+            {
+                animator.SetBool("isHit", true);
+                if (is_biting)
+                {
+                    BiteAnimationEnd();
+                }
+            }
         }
+    }
+
+    private void BiteAnimationEnd()
+    {
+        is_biting = false;
+        animator.SetInteger("isBite", -1);
+        bite_colliders[active_bite_collider_index].enabled = false;
     }
 
     private void DeadAnimationEnd()
     {
         SceneManager.LoadScene("MenuScene");
+    }
+
+    private void HitAnimationEnd()
+    {
+        animator.SetBool("isHit", false);
     }
 }

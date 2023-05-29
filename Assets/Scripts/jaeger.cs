@@ -54,11 +54,6 @@ public class NewBehaviourScript : MonoBehaviour
             animator.SetBool("isWalk", isWalking);
         }
 
-        if (animator.GetBool("isShooting"))
-        {
-            animator.SetBool("isShooting", false);
-        }
-
         if (isShooting > 3 && !isWalking)
         {
             animator.SetBool("isShooting", true);
@@ -99,6 +94,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void AnimationFire()
     {
+        animator.SetBool("isShooting", false);
         weapon.Fire();
     }
 

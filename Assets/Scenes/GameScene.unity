@@ -427,9 +427,25 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
+      propertyPath: trees.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
       propertyPath: hunters.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
+      propertyPath: trees.Array.data[0]
+      value: 
+      objectReference: {fileID: 3169297522142949298, guid: 28ff8cade26782a1a825690f32afd70c, type: 3}
+    - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
+      propertyPath: trees.Array.data[1]
+      value: 
+      objectReference: {fileID: 3169297522142949298, guid: 0256b87592fc6632fb64b1cc5e216536, type: 3}
+    - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
+      propertyPath: trees.Array.data[2]
+      value: 
+      objectReference: {fileID: 3169297522142949298, guid: 3f0e97b3190fa6c109768e4460fa3a6d, type: 3}
     - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
       propertyPath: bossHearts.Array.size
       value: 5
@@ -842,8 +858,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   rb: {fileID: 964236113}
+  moveDirection: {x: 0, y: 0}
   health: {fileID: 0}
   hitCooldownTime: 2
+  bulletLayer: 0
+  hitTime: 0
+  isHit: 0
+  mSpriteRenderer: {fileID: 0}
+  mBoxCollider: {fileID: 0}
 --- !u!50 &964236113
 Rigidbody2D:
   serializedVersion: 4
