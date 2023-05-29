@@ -11,6 +11,8 @@ public class Wolf_Movement : MonoBehaviour
 
     public CapsuleCollider2D[] bite_colliders;
 
+    public ParticleSystem blood_particles;
+
     private bool is_walking = false;
     private bool is_biting = false;
     private int active_bite_collider_index = -1;
@@ -129,6 +131,10 @@ public class Wolf_Movement : MonoBehaviour
             isHit = true;
             capsule_collider.excludeLayers = LayerMask.GetMask("bullet");
             sprite_renderer.color = new Color(sprite_renderer.color.r, sprite_renderer.color.g, sprite_renderer.color.b, 0.2f);
+
+            ParticleSystem blood = Instantiate(blood_particles);
+            blood.transform.position = collision.transform.position;
+            blood.Play();
 
             if (health.health == 0)
             {

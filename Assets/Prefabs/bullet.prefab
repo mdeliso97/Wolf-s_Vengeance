@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323eff45cca840049b1c5f9cd890cc6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  woodParticles: {fileID: 2549803325406859791, guid: f0b15ae975f3a774099b7c97fa609058, type: 3}
 --- !u!61 &2290459965384437570
 BoxCollider2D:
   m_ObjectHideFlags: 0

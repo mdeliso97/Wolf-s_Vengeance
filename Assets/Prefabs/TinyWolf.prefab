@@ -139,6 +139,7 @@ MonoBehaviour:
   - {fileID: 4124953666691018881}
   - {fileID: 961940783830635792}
   - {fileID: 6189616534137600851}
+  blood_particles: {fileID: 2549803325406859791, guid: 9292c14f2fecdb744a3ea5b8edf0c54e, type: 3}
 --- !u!50 &2757245806029385718
 Rigidbody2D:
   serializedVersion: 4
