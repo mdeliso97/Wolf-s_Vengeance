@@ -95,6 +95,7 @@ public class NewBehaviourScript : MonoBehaviour
     private void AnimationFire()
     {
         weapon.Fire();
+        print("shoot");
     }
 
     private void AnimationDeadEnd()
