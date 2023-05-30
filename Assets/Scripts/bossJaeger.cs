@@ -1,25 +1,23 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.Versioning;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class bossJaeger : MonoBehaviour
 {
-    public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Weapon weapon1;
     public Weapon weapon2;
+    public GameObject weapons;
     public BossHealth health;
 
     private GameObject wolf;
     private Animator animator;
+    private bool flipped = false;
 
-    float isShooting = 0f;
+    private float isShooting = 0f;
 
     private int biteLayer;
+    private int attackInterval = 10;
 
     public bool active = false;
 
@@ -28,13 +26,11 @@ public class bossJaeger : MonoBehaviour
         wolf = GameObject.Find("Wolf");
         animator = GetComponent<Animator>();
         biteLayer = LayerMask.NameToLayer("bite");
-        InvokeRepeating("chooseAttack", 0, 10);
+        InvokeRepeating("chooseAttack", 0, attackInterval);
     }
 
     void chooseAttack()
     {
-        print("boss choose attack");
-
         int rand = UnityEngine.Random.Range(0, 3);
 
         switch (rand)
@@ -51,60 +47,89 @@ public class bossJaeger : MonoBehaviour
 
     IEnumerator CannonAttackCoroutine()
     {
-        print("cannon attack");
+        // TODO: balancing - adjust 'bombCount' value
+        int numBombs = 4;
 
-        float duration = 2f;
-        float startTime = Time.time;
+        float duration = (float)(attackInterval - 1) / (float)numBombs;
+        rb.rotation = flipped ? 180f : 0f;
 
-        while (Time.time - startTime < duration)
+        int bombCount = 0;
+        while (bombCount < numBombs)
         {
-            weapon2.transform.RotateAround(rb.position, new Vector3(0, 0, 1), Time.deltaTime*10f);
+            float startTime = Time.time;
+            while (Time.time - startTime < duration)
+            {
+                weapons.transform.RotateAround(weapons.transform.position, new Vector3(0, 0, 1), Time.deltaTime * 100f);
 
-            yield return null;
+                yield return null;
+            }
+
+            weapon1.FireBomb();
+            weapon2.FireBomb();
+            animator.SetInteger("attack", 2);
+
+            bombCount++;
         }
-
-        weapon1.FireBomb();
-        weapon2.FireBomb();
     }
 
     IEnumerator DashAttackCoroutine()
     {
-        print("dash attack");
+        // TODO: balancing - adjust 'dashSpeed' and 'numDashes' values
+        float dashSpeed = 25;
+        int numDashes = 6;
+
+        float dashDuration = (float)(attackInterval - 1) / (float)numDashes;
 
         int dashCount = 0;
-        while (dashCount < 3)
+        while (dashCount < numDashes)
         {
             Vector2 wolfPosition = wolf.transform.position;
             Vector2 aimDirection = wolfPosition - rb.position;
-            float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+            float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
             rb.rotation = aimAngle;
 
-            float startTime = Time.time;
-            while (Time.time - startTime < 3f)
+            // flip sprite depending on current walk direction
+            if ((flipped && aimDirection.x > 0) || (!flipped && aimDirection.x < 0))
             {
-                aimDirection = wolfPosition - rb.position;
-                aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-                rb.rotation = aimAngle;
+                transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * -1, transform.localScale.z);
+                flipped = !flipped;
+            }
 
-                rb.position = Vector2.MoveTowards(rb.position, wolfPosition, moveSpeed * Time.deltaTime * 80);
+            float startTime = Time.time;
+            animator.SetBool("isWalk", true);
+
+            while (Time.time - startTime < dashDuration)
+            {
+                Vector2 newPosition = Vector2.MoveTowards(rb.position, wolfPosition, dashSpeed * Time.deltaTime);
+
+                if (Vector2.Distance(newPosition, rb.position) <= 0.001f)
+                {
+                    animator.SetBool("isWalk", false);
+                }
+
+                rb.position = newPosition;
                 yield return null;
             }
 
             dashCount++;
         }
-
     }
 
     IEnumerator SpinAttackCoroutine()
     {
-        print("spin attack");
+        // TODO: balancing - adjust 'shootInterval' and 'rotationSpeed' values
+        float shootInterval = 0.2f;
+        float rotationSpeed = 100f;
 
-        float duration = 8f; 
+        float duration = 8f;
         float startTime = Time.time;
+
+        rb.rotation = flipped ? 180f : 0f;
+        animator.SetInteger("attack", 1);
 
         while (Time.time - startTime < duration)
         {
-            if (isShooting > 0.1)
+            if (isShooting > shootInterval)
             {
                 weapon1.Fire();
                 weapon2.Fire();
@@ -112,10 +137,12 @@ public class bossJaeger : MonoBehaviour
             }
 
             isShooting += Time.deltaTime;
-            transform.Rotate(0, 0, 100*Time.deltaTime);
+            weapons.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
 
             yield return null;
         }
+
+        animator.SetInteger("attack", -1);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -133,8 +160,13 @@ public class bossJaeger : MonoBehaviour
         }
     }
 
-    private void AnimationDeadEnd()
+    private void DeadAnimationEnd()
     {
         SceneManager.LoadScene("MenuScene");
+    }
+
+    private void ThrowAnimationEnd()
+    {
+        animator.SetInteger("attack", -1);
     }
 }

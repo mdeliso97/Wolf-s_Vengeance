@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class bomb : MonoBehaviour
@@ -8,21 +5,25 @@ public class bomb : MonoBehaviour
     public float duration = 5f;
     public float startTime;
     public float radius = 10f;
-    private Animator animator;
     public AudioSource bombAudio;
 
-
+    private Rigidbody2D rb;
+    private Animator animator;
 
     public void Start()
     {
-        print("instantiated bomb");
         startTime = Time.time;
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        bombAudio = GameObject.Find("ExplosionSound").GetComponent<AudioSource>();
+
+        rb.AddTorque(0.5f, ForceMode2D.Impulse);
     }
 
     public void Update()
     {
+        // update y coordinate for rendering order
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y / 10000f);
+
         if (Time.time - startTime > duration)
         {
             explode();
@@ -32,7 +33,6 @@ public class bomb : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         explode();
-    
     }
 
     private void explode()
@@ -41,8 +41,10 @@ public class bomb : MonoBehaviour
 
         print(colliders.Length);
 
-        animator.SetBool("Explosion", true);
+        animator.SetBool("explode", true);
         bombAudio.Play();
+        rb.rotation = 0f;
+        rb.freezeRotation = true;
 
         foreach (var col in colliders)
         {
@@ -51,18 +53,10 @@ public class bomb : MonoBehaviour
                 Destroy(col.gameObject);
             }
         }
-        StartCoroutine(DestroyAfterAnimation());
     }
 
-    private IEnumerator DestroyAfterAnimation()
+    private void ExplodeAnimationEnd()
     {
-        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.5f)
-        {
-            yield return null;
-        }
-
-        yield return new WaitForSeconds(0.7f);
-
         Destroy(gameObject);
     }
 }

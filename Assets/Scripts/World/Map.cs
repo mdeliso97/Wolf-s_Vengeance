@@ -174,8 +174,9 @@ public class World : MonoBehaviour
     }
 
     private void SetBossPosition() {
-        float positionX = Random.Range(-bossDistance, bossDistance);
-        float positionY = Mathf.Sqrt(bossDistance*bossDistance - positionX*positionX);
+        float positionY = Random.Range(-bossDistance, bossDistance);
+        float positionX = Mathf.Sqrt(bossDistance * bossDistance - positionY * positionY);
+        positionX = Random.Range(-1, 1) > 0 ? positionX : -positionX;
         bossPosition = new Vector3(positionX, positionY, 0);
         bossBase.transform.position = bossPosition;
         Debug.Log("Boss Position: x " + positionX + " - y " + positionY);
