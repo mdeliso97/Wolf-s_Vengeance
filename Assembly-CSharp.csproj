@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\BossHealth.cs" />
     <Compile Include="Assets\Scripts\bossJaeger.cs" />
+    <Compile Include="Assets\Scripts\BombExplosion.cs" />
     <Compile Include="Assets\Scripts\Wolf\Wolf_Movement.cs" />
     <Compile Include="Assets\Scripts\shotgun.cs" />
     <Compile Include="Assets\Scripts\jaeger.cs" />

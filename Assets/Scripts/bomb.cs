@@ -4,17 +4,23 @@ public class bomb : MonoBehaviour
 {
     public float duration = 5f;
     public float startTime;
-    public float radius = 10f;
     public AudioSource bombAudio;
+    public GameObject shockwave;
 
     private Rigidbody2D rb;
     private Animator animator;
+    private Animator shockwaveAnimator;
+    private CircleCollider2D shockwaveCollider;
 
     public void Start()
     {
         startTime = Time.time;
+
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        shockwaveAnimator = shockwave.GetComponent<Animator>();
+        shockwaveCollider = shockwave.GetComponent<CircleCollider2D>();
+        shockwaveCollider.enabled = false;
 
         rb.AddTorque(0.5f, ForceMode2D.Impulse);
     }
@@ -37,22 +43,13 @@ public class bomb : MonoBehaviour
 
     private void explode()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
-
-        print(colliders.Length);
-
         animator.SetBool("explode", true);
         bombAudio.Play();
         rb.rotation = 0f;
         rb.freezeRotation = true;
 
-        foreach (var col in colliders)
-        {
-            if (col.tag == "tree")
-            {
-                Destroy(col.gameObject);
-            }
-        }
+        shockwaveAnimator.SetBool("shockwave", true);
+        shockwaveCollider.enabled = true;
     }
 
     private void ExplodeAnimationEnd()

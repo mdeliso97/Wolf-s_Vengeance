@@ -17,6 +17,7 @@ public class Wolf_Movement : MonoBehaviour
     private bool is_biting = false;
     private int active_bite_collider_index = -1;
 
+    private int bombLayer;
     private int bulletLayer;
     private float hitTime = 0f;
     private bool isHit = false;
@@ -31,6 +32,7 @@ public class Wolf_Movement : MonoBehaviour
 
     void Start()
     {
+        bombLayer = LayerMask.NameToLayer("bombExp");
         bulletLayer = LayerMask.NameToLayer("bullet");
 
         health = GetComponent<Health>();
@@ -125,7 +127,24 @@ public class Wolf_Movement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!isHit && collision.gameObject.layer == bulletLayer) {
+        if (collision.gameObject.layer == bulletLayer)
+        {
+            getHit(collision.transform.position);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == bombLayer)
+        {
+            getHit(collision.transform.position);
+        }
+    }
+
+    private void getHit(Vector3 collisionPosition)
+    {
+        if (!isHit)
+        {
             health.health--;
 
             isHit = true;
@@ -133,7 +152,7 @@ public class Wolf_Movement : MonoBehaviour
             sprite_renderer.color = new Color(sprite_renderer.color.r, sprite_renderer.color.g, sprite_renderer.color.b, 0.2f);
 
             ParticleSystem blood = Instantiate(blood_particles);
-            blood.transform.position = collision.transform.position;
+            blood.transform.position = collisionPosition;
             blood.Play();
 
             if (health.health == 0)
