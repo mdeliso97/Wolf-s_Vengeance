@@ -17,10 +17,13 @@ public class Wolf_Movement : MonoBehaviour
     private bool is_biting = false;
     private int active_bite_collider_index = -1;
 
-    private int bombLayer;
+    private int bombExpLayer;
     private int bulletLayer;
+    private int jaegerLayer;
+    private int bossHitLayer;
     private float hitTime = 0f;
     private bool isHit = false;
+    private int stuckInsideBossCount = 0;
 
     private Health health;
     private Rigidbody2D rb;
@@ -32,8 +35,10 @@ public class Wolf_Movement : MonoBehaviour
 
     void Start()
     {
-        bombLayer = LayerMask.NameToLayer("bombExp");
+        bombExpLayer = LayerMask.NameToLayer("bombExp");
         bulletLayer = LayerMask.NameToLayer("bullet");
+        jaegerLayer = LayerMask.NameToLayer("jaeger");
+        bossHitLayer = LayerMask.NameToLayer("bossHit");
 
         health = GetComponent<Health>();
         rb = GetComponent<Rigidbody2D>();
@@ -125,19 +130,46 @@ public class Wolf_Movement : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        // hit by bullet
         if (collision.gameObject.layer == bulletLayer)
         {
             getHit(collision.transform.position);
         }
     }
 
+    /* private void OnCollisionStay2D(Collision2D collision)
+    {
+        // stuck inside boss jaeger
+        if (collision.gameObject.layer == jaegerLayer && collision.gameObject.tag == "bossJaeger")
+        {
+            stuckInsideBossCount++;
+
+            if (stuckInsideBossCount > 10)
+            {
+                print("du unstuck");
+                stuckInsideBossCount = 0;
+                Vector3 collisionDirection3 = transform.position - collision.gameObject.transform.position;
+                Vector2 collisionDirection = new Vector2(collisionDirection3.x, collisionDirection3.y).normalized;
+                transform.position = rb.position + collisionDirection * 5;
+            }
+        }
+    } */
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == bombLayer)
+        // hit by bomb explosion radius
+        if (collision.gameObject.layer == bombExpLayer)
         {
             getHit(collision.transform.position);
+        }
+        // hit by boss during dash attack
+        else if (collision.gameObject.layer == bossHitLayer)
+        {
+            getHit(collision.transform.position);
+            Vector3 collisionDirection = transform.position - collision.gameObject.transform.position;
+            rb.AddForce(new Vector2(collisionDirection.x, collisionDirection.y).normalized * 20, ForceMode2D.Impulse);
         }
     }
 
