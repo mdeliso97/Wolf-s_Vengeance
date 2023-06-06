@@ -54,7 +54,7 @@ public class NewBehaviourScript : MonoBehaviour
             animator.SetBool("isWalk", isWalking);
         }
 
-        if (isShooting > 3 && !isWalking)
+        if (isShooting > 4 && !isWalking)
         {
             animator.SetBool("isShooting", true);
             isShooting = 0;

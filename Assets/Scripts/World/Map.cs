@@ -74,9 +74,20 @@ public class World : MonoBehaviour
             
         time += Time.deltaTime;
         if (time > spawnInterval && !isBossInitiated) {
+            print(Vector2.Distance(new Vector2(camera.transform.position.x, camera.transform.position.y), new Vector2(bossPosition.x, bossPosition.y)));
+
             Vector3[] spawnPositions = GetSpawnPositions(4);
             foreach (Vector3 spawnPosition in spawnPositions) {
-                Instantiate(hunters[1], spawnPosition, Quaternion.identity);
+                
+                int randomNumber = Random.Range(0, 5);
+                if (randomNumber == 0)
+                {
+                    Instantiate(hunters[0], spawnPosition, Quaternion.identity);
+                } else
+                {
+                    Instantiate(hunters[1], spawnPosition, Quaternion.identity);
+                }
+
 
             }
             time -= spawnInterval;
@@ -178,7 +189,10 @@ public class World : MonoBehaviour
         float positionX = Mathf.Sqrt(bossDistance * bossDistance - positionY * positionY);
         positionX = Random.Range(-1, 1) > 0 ? positionX : -positionX;
         bossPosition = new Vector3(positionX, positionY, 0);
-        bossBase.transform.position = bossPosition;
+        bossBase.transform.position = bossPosition + new Vector3(0, 10, 0);
+        print(bossPosition);
+        print(bossBase.transform.position);
+
         Debug.Log("Boss Position: x " + positionX + " - y " + positionY);
     }
 
