@@ -41,12 +41,19 @@ public class World : MonoBehaviour
     private float time = 0f;
     private int numUpdates = 0;
 
+    private AudioSource battleAudio;
+    private AudioSource bossFightAudio;
+
     void Start() {
         SetBossPosition();
         for (int i = 0; i < bossHearts.Length; i++)
         {
             bossHearts[i].enabled = false;
         }
+        battleAudio = GameObject.Find("Battle Soundtrack").GetComponent<AudioSource>();
+        bossFightAudio = GameObject.Find("Bossfight Soundtrack").GetComponent<AudioSource>();
+
+        battleAudio.Play();
     }
 
     void Update() {
@@ -69,14 +76,29 @@ public class World : MonoBehaviour
         if (Vector2.Distance(new Vector2(camera.transform.position.x, camera.transform.position.y), new Vector2(bossPosition.x, bossPosition.y))< 10 && !isBossInitiated)
         {
             StartBossSequence();
-            isBossInitiated=true;
+            isBossInitiated =true;
+
+            // ToDO: Fix this, generates a small lag for some reasons
+            battleAudio.Stop();
+            bossFightAudio.Play();
         }
             
         time += Time.deltaTime;
         if (time > spawnInterval && !isBossInitiated) {
+            print(Vector2.Distance(new Vector2(camera.transform.position.x, camera.transform.position.y), new Vector2(bossPosition.x, bossPosition.y)));
+
             Vector3[] spawnPositions = GetSpawnPositions(4);
             foreach (Vector3 spawnPosition in spawnPositions) {
-                Instantiate(hunters[1], spawnPosition, Quaternion.identity);
+                
+                int randomNumber = Random.Range(0, 5);
+                if (randomNumber == 0)
+                {
+                    Instantiate(hunters[0], spawnPosition, Quaternion.identity);
+                } else
+                {
+                    Instantiate(hunters[1], spawnPosition, Quaternion.identity);
+                }
+
 
             }
             time -= spawnInterval;
@@ -178,7 +200,10 @@ public class World : MonoBehaviour
         float positionX = Mathf.Sqrt(bossDistance * bossDistance - positionY * positionY);
         positionX = Random.Range(-1, 1) > 0 ? positionX : -positionX;
         bossPosition = new Vector3(positionX, positionY, 0);
-        bossBase.transform.position = bossPosition;
+        bossBase.transform.position = bossPosition + new Vector3(0, 10, 0);
+        print(bossPosition);
+        print(bossBase.transform.position);
+
         Debug.Log("Boss Position: x " + positionX + " - y " + positionY);
     }
 

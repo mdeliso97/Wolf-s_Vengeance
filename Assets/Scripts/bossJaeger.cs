@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Build.Reporting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,9 +10,12 @@ public class bossJaeger : MonoBehaviour
     public Weapon weapon2;
     public GameObject weapons;
     public BossHealth health;
+    public GameObject attack;
+    public AudioSource bossDeath;
 
     private GameObject wolf;
     private Animator animator;
+    private CircleCollider2D attackCollider;
     private bool flipped = false;
 
     private float isShooting = 0f;
@@ -26,8 +30,11 @@ public class bossJaeger : MonoBehaviour
         wolf = GameObject.Find("Wolf");
         animator = GetComponent<Animator>();
         biteLayer = LayerMask.NameToLayer("bite");
-        InvokeRepeating("chooseAttack", 0, attackInterval);
+        attackCollider = attack.GetComponent<CircleCollider2D>();
+        attackCollider.enabled = false;
+        InvokeRepeating("chooseAttack", 1, attackInterval);
     }
+
 
     void chooseAttack()
     {
@@ -96,6 +103,7 @@ public class bossJaeger : MonoBehaviour
             }
 
             float startTime = Time.time;
+            attackCollider.enabled = true;
             animator.SetBool("isWalk", true);
 
             while (Time.time - startTime < dashDuration)
@@ -105,11 +113,15 @@ public class bossJaeger : MonoBehaviour
                 if (Vector2.Distance(newPosition, rb.position) <= 0.001f)
                 {
                     animator.SetBool("isWalk", false);
+                    attackCollider.enabled = false;
                 }
 
                 rb.position = newPosition;
                 yield return null;
             }
+
+            animator.SetBool("isWalk", false);
+            attackCollider.enabled = false;
 
             dashCount++;
         }
@@ -147,22 +159,22 @@ public class bossJaeger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("im bit");
         if (collision.gameObject.layer == biteLayer)
         {
             health.health--;
-            print(health.health);
 
             if (health.health == 0)
             {
                 animator.SetBool("isDead", true);
+                bossDeath.Play();
+
             }
         }
     }
 
     private void DeadAnimationEnd()
     {
-        SceneManager.LoadScene("MenuScene");
+        SceneManager.LoadScene("WinScene");
     }
 
     private void ThrowAnimationEnd()

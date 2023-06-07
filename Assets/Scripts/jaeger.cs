@@ -7,6 +7,17 @@ public class NewBehaviourScript : MonoBehaviour
     public Weapon weapon;
     public float walkingDistance = 12;
 
+    public AudioSource death0;
+    public AudioSource death1;
+    public AudioSource death2;
+    public AudioSource death3;
+    public AudioSource death4;
+    public AudioSource death5;
+    public AudioSource death6;
+    public AudioSource death7;
+
+    public AudioSource[] deathSounds;
+
     private Vector2 wolfPosition;
     private GameObject wolf;
     private Vector2 selfPosition;
@@ -22,6 +33,18 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void Start()
     {
+        deathSounds = new AudioSource[]
+        {
+            death0,
+            death1,
+            death2,
+            death3,
+            death4,
+            death5,
+            death6,
+            death7
+        };
+
         biteLayer = LayerMask.NameToLayer("bite");
 
         animator = GetComponent<Animator>();
@@ -54,7 +77,7 @@ public class NewBehaviourScript : MonoBehaviour
             animator.SetBool("isWalk", isWalking);
         }
 
-        if (isShooting > 3 && !isWalking)
+        if (isShooting > 4 && !isWalking)
         {
             animator.SetBool("isShooting", true);
             isShooting = 0;
@@ -86,7 +109,10 @@ public class NewBehaviourScript : MonoBehaviour
     {
         if (collision.gameObject.layer == biteLayer)
         {
+            AudioSource deadSound = SelectSound();
             animator.SetBool("isDead", true);
+            deadSound.Play();
+
             isDead = true;
             rb.simulated = false;
         }
@@ -101,5 +127,11 @@ public class NewBehaviourScript : MonoBehaviour
     private void AnimationDeadEnd()
     {
         Destroy(gameObject);
+    }
+
+    private AudioSource SelectSound()
+    {
+        int randomIndex = Random.Range(0, deathSounds.Length);
+        return deathSounds[randomIndex];
     }
 }
