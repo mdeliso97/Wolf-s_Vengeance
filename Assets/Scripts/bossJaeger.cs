@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor.Build.Reporting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +19,7 @@ public class bossJaeger : MonoBehaviour
 
     private float isShooting = 0f;
 
+    private int attackNumber = 1;
     private int biteLayer;
     private int attackInterval = 10;
 
@@ -38,9 +38,7 @@ public class bossJaeger : MonoBehaviour
 
     void chooseAttack()
     {
-        int rand = UnityEngine.Random.Range(0, 3);
-
-        switch (rand)
+        switch (attackNumber)
         {
             case 0:
                 StartCoroutine(SpinAttackCoroutine()); break;
@@ -50,6 +48,7 @@ public class bossJaeger : MonoBehaviour
                 StartCoroutine(CannonAttackCoroutine()); break;
         }
 
+        attackNumber = UnityEngine.Random.Range(0, 3);
     }
 
     IEnumerator CannonAttackCoroutine()

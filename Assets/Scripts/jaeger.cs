@@ -70,7 +70,7 @@ public class NewBehaviourScript : MonoBehaviour
         selfPosition = transform.position;
         distanceToWolf = Vector2.Distance(selfPosition, wolfPosition);
 
-        bool newIsWalking = distanceToWolf > walkingDistance;
+        bool newIsWalking = distanceToWolf > walkingDistance + (isWalking ? 0 : 4);
         if (isWalking != newIsWalking)
         {
             isWalking = newIsWalking;

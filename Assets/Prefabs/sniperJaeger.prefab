@@ -398,10 +398,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ddef878a7de14a4691bb47fc3ad370c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.15
+  moveSpeed: 0.3
   rb: {fileID: 7631585385433783498}
   weapon: {fileID: 1910671654478397768}
-  walkingDistance: 25
+  walkingDistance: 20
   death0: {fileID: 770321044930604627}
   death1: {fileID: 9103681331854311269}
   death2: {fileID: 2027433517792861227}

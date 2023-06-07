@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
-
+using UnityEditor;
 
 public class World : MonoBehaviour
 {
@@ -28,7 +28,7 @@ public class World : MonoBehaviour
     public int bossDistance = 1_000;
 
     [Header("Enemy Spawn Settings")]
-    public float spawnInterval = 5f;
+    public float spawnInterval = 20f;
     
 
     private Vector3 bossPosition;
@@ -38,7 +38,7 @@ public class World : MonoBehaviour
     private Dictionary<string, Chunk> chunks = new Dictionary<string, Chunk>();
     private int chunkSize = 50;
 
-    private float time = 0f;
+    private float time = 0;
     private int numUpdates = 0;
 
     private AudioSource battleAudio;
@@ -54,6 +54,8 @@ public class World : MonoBehaviour
         bossFightAudio = GameObject.Find("Bossfight Soundtrack").GetComponent<AudioSource>();
 
         battleAudio.Play();
+
+        time = spawnInterval - 4;
     }
 
     void Update() {
@@ -73,7 +75,7 @@ public class World : MonoBehaviour
 
         UpdateBossPositionUI();
 
-        if (Vector2.Distance(new Vector2(camera.transform.position.x, camera.transform.position.y), new Vector2(bossPosition.x, bossPosition.y))< 10 && !isBossInitiated)
+        if (Vector2.Distance(new Vector2(camera.transform.position.x, camera.transform.position.y), new Vector2(bossPosition.x, bossPosition.y)) < 20 && !isBossInitiated)
         {
             StartBossSequence();
             isBossInitiated =true;
@@ -85,8 +87,6 @@ public class World : MonoBehaviour
             
         time += Time.deltaTime;
         if (time > spawnInterval && !isBossInitiated) {
-            print(Vector2.Distance(new Vector2(camera.transform.position.x, camera.transform.position.y), new Vector2(bossPosition.x, bossPosition.y)));
-
             Vector3[] spawnPositions = GetSpawnPositions(4);
             foreach (Vector3 spawnPosition in spawnPositions) {
                 
@@ -98,10 +98,13 @@ public class World : MonoBehaviour
                 {
                     Instantiate(hunters[1], spawnPosition, Quaternion.identity);
                 }
-
-
             }
             time -= spawnInterval;
+            spawnInterval *= 0.9f;
+            if (spawnInterval < 5f)
+            {
+                spawnInterval = 5f;
+            }
         }
     }
 
@@ -112,7 +115,6 @@ public class World : MonoBehaviour
         {
             Destroy(enemies[i]);
         }
-        print(bossJaegerPrefab);
         for (int i = 0; i < bossHearts.Length; i++)
         {
             bossHearts[i].enabled = true;
