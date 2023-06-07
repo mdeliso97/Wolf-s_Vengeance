@@ -42,8 +42,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 559f1099caecc8b42bd6e3ac51de4663, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -449,7 +449,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 5
   startTime: 0
-  radius: 40
   bombAudio: {fileID: 1912281209337504094}
   shockwave: {fileID: 7195686718907789946}
 --- !u!95 &2818136935803518884

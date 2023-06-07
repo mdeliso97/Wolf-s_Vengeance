@@ -11,6 +11,7 @@ public class bossJaeger : MonoBehaviour
     public GameObject weapons;
     public BossHealth health;
     public GameObject attack;
+    public AudioSource bossDeath;
 
     private GameObject wolf;
     private Animator animator;
@@ -165,6 +166,8 @@ public class bossJaeger : MonoBehaviour
             if (health.health == 0)
             {
                 animator.SetBool("isDead", true);
+                bossDeath.Play();
+
             }
         }
     }

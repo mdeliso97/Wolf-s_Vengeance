@@ -8,6 +8,9 @@ public class Wolf_Movement : MonoBehaviour
     public float wolf_speed = 20f;
     public float sqr_max_speed = 100f;
     public float hitCooldownTime = 2f;
+    public AudioSource bite0;
+    public AudioSource bite1;
+    public AudioSource wolfDeath;
 
     public CapsuleCollider2D[] bite_colliders;
 
@@ -30,8 +33,6 @@ public class Wolf_Movement : MonoBehaviour
     private Animator animator;
     private SpriteRenderer sprite_renderer;
     private CapsuleCollider2D capsule_collider;
-    private AudioSource bite0;
-    private AudioSource bite1;
 
     void Start()
     {
@@ -45,9 +46,6 @@ public class Wolf_Movement : MonoBehaviour
         animator = GetComponent<Animator>();
         sprite_renderer = GetComponent<SpriteRenderer>();
         capsule_collider = GetComponent<CapsuleCollider2D>();
-
-        bite0 = GameObject.Find("SoundBite0").GetComponent<AudioSource>();
-        bite1 = GameObject.Find("SoundBite1").GetComponent<AudioSource>();
 
         // sort the colliders by name
         System.Array.Sort(bite_colliders, new Sort());
@@ -190,6 +188,7 @@ public class Wolf_Movement : MonoBehaviour
             if (health.health == 0)
             {
                 animator.SetBool("isDead", true);
+                wolfDeath.Play();
                 rb.drag = 100;
             }
             else

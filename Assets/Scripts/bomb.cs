@@ -20,6 +20,9 @@ public class bomb : MonoBehaviour
         animator = GetComponent<Animator>();
         shockwaveAnimator = shockwave.GetComponent<Animator>();
         shockwaveCollider = shockwave.GetComponent<CircleCollider2D>();
+
+        // With this implementation the sound is less bugfgy, but still not consistent
+        bombAudio = GameObject.Find("ExplosionSound").GetComponent<AudioSource>();
         shockwaveCollider.enabled = false;
 
         rb.AddTorque(0.5f, ForceMode2D.Impulse);
@@ -32,19 +35,21 @@ public class bomb : MonoBehaviour
 
         if (Time.time - startTime > duration)
         {
+            
             explode();
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         explode();
     }
 
     private void explode()
     {
-        animator.SetBool("explode", true);
         bombAudio.Play();
+        animator.SetBool("explode", true);
         rb.rotation = 0f;
         rb.freezeRotation = true;
 

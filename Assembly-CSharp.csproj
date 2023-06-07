@@ -67,8 +67,8 @@
     <Compile Include="Assets\Scripts\weapon.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\World\Chunk.cs" />
-    <Compile Include="Assets\WinMenu.cs" />
     <Compile Include="Assets\LoseMenu.cs" />
+    <Compile Include="Assets\WinMenu.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\BossHealth.cs" />
     <Compile Include="Assets\Scripts\bossJaeger.cs" />
