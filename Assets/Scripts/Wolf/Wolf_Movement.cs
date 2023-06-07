@@ -212,7 +212,7 @@ public class Wolf_Movement : MonoBehaviour
 
     private void DeadAnimationEnd()
     {
-        SceneManager.LoadScene("MenuScene");
+        SceneManager.LoadScene("LoseScene");
     }
 
     private void HitAnimationEnd()

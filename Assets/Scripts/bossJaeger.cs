@@ -171,7 +171,7 @@ public class bossJaeger : MonoBehaviour
 
     private void DeadAnimationEnd()
     {
-        SceneManager.LoadScene("MenuScene");
+        SceneManager.LoadScene("WinScene");
     }
 
     private void ThrowAnimationEnd()
