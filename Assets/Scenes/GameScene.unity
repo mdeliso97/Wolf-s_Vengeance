@@ -825,7 +825,7 @@ PrefabInstance:
       objectReference: {fileID: 1525754937}
     - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
       propertyPath: bossDistance
-      value: 300
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 3009661809211699554, guid: 24a613082dbfcc278a4e72a741fff56a, type: 3}
       propertyPath: spawnInterval
