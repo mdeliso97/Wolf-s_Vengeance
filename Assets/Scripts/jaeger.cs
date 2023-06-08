@@ -23,7 +23,7 @@ public class NewBehaviourScript : MonoBehaviour
     private Vector2 selfPosition;
 
     private float isShooting = 0f;
-    private bool isWalking = true;
+    private bool isWalking = false;
     private float distanceToWolf = 0f;
     private int biteLayer;
     private bool isDead = false;
