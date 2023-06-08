@@ -7,7 +7,9 @@ public class bomb : MonoBehaviour
     public AudioSource bombAudio;
     public GameObject shockwave;
 
+    private bool isExploding = false;
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
     private Animator animator;
     private Animator shockwaveAnimator;
     private CircleCollider2D shockwaveCollider;
@@ -15,14 +17,13 @@ public class bomb : MonoBehaviour
     public void Start()
     {
         startTime = Time.time;
+        duration += Random.Range(-1f, 1f);
 
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         shockwaveAnimator = shockwave.GetComponent<Animator>();
         shockwaveCollider = shockwave.GetComponent<CircleCollider2D>();
-
-        // With this implementation the sound is less bugfgy, but still not consistent
-        bombAudio = GameObject.Find("ExplosionSound").GetComponent<AudioSource>();
         shockwaveCollider.enabled = false;
 
         rb.AddTorque(0.5f, ForceMode2D.Impulse);
@@ -48,6 +49,10 @@ public class bomb : MonoBehaviour
 
     private void explode()
     {
+        if (isExploding) return;
+
+        isExploding = true;
+
         bombAudio.Play();
         animator.SetBool("explode", true);
         rb.rotation = 0f;
@@ -58,6 +63,14 @@ public class bomb : MonoBehaviour
     }
 
     private void ExplodeAnimationEnd()
+    {
+        shockwaveCollider.enabled = false;
+        spriteRenderer.enabled = false;
+        // wait with destroying the gameObject until the explosion sound has finished playing
+        this.Invoke("destroy", 1.5f);
+    }
+
+    private void destroy()
     {
         Destroy(gameObject);
     }
