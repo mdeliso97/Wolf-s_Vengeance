@@ -65,6 +65,7 @@ public class bomb : MonoBehaviour
     private void ExplodeAnimationEnd()
     {
         shockwaveCollider.enabled = false;
+        spriteRenderer.enabled = false;
         // wait with destroying the gameObject until the explosion sound has finished playing
         this.Invoke("destroy", 1.5f);
     }

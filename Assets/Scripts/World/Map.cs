@@ -41,6 +41,9 @@ public class World : MonoBehaviour
     private float time = 0;
     private int numUpdates = 0;
 
+    private bool fadeAudio = false;
+    private float fadeTime = 0f;
+    private float fadeDuration = 1f;
     private AudioSource battleAudio;
     private AudioSource bossFightAudio;
 
@@ -78,13 +81,18 @@ public class World : MonoBehaviour
         if (Vector2.Distance(new Vector2(camera.transform.position.x, camera.transform.position.y), new Vector2(bossPosition.x, bossPosition.y)) < 20 && !isBossInitiated)
         {
             StartBossSequence();
-            isBossInitiated =true;
+            isBossInitiated = true;
 
-            // ToDO: Fix this, generates a small lag for some reasons
-            battleAudio.Stop();
+            fadeAudio = true;
             bossFightAudio.Play();
         }
-            
+
+        if (fadeAudio)
+        {
+            FadeAudio();
+        }
+
+
         time += Time.deltaTime;
         if (time > spawnInterval && !isBossInitiated) {
             Vector3[] spawnPositions = GetSpawnPositions(4);
@@ -105,6 +113,22 @@ public class World : MonoBehaviour
             {
                 spawnInterval = 5f;
             }
+        }
+    }
+
+    private void FadeAudio()
+    {
+        fadeTime += Time.deltaTime;
+
+        if (fadeTime < fadeDuration)
+        {
+            battleAudio.volume = Mathf.Lerp(1.0f, 0.0f, fadeTime / fadeDuration);
+            bossFightAudio.volume = Mathf.Lerp(0.0f, 1.0f, fadeTime / fadeDuration);
+        }
+        else
+        {
+            fadeAudio = false;
+            battleAudio.Stop();
         }
     }
 
