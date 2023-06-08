@@ -35,6 +35,12 @@ public class bossJaeger : MonoBehaviour
         InvokeRepeating("chooseAttack", 1, attackInterval);
     }
 
+    private void Update()
+    {
+        // update y coordinate for rendering order
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y / 10000f);
+    }
+
 
     void chooseAttack()
     {
